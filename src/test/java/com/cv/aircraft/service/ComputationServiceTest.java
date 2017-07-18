@@ -14,8 +14,8 @@ public class ComputationServiceTest {
     @Test
     public void shouldComputeAllowedZone() throws Exception {
         //GIVEN
-        float latitude = Float.valueOf("50.48301");
-        float longitude = Float.valueOf("30.451475");
+        float latitude = Float.valueOf("50.338819");
+        float longitude = Float.valueOf("30.891283");
         //WHEN
         Zone computeZone = computationService.computeZone(latitude, longitude);
         //THEN
