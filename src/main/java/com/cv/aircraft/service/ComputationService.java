@@ -1,7 +1,9 @@
 package com.cv.aircraft.service;
 
 import com.cv.aircraft.dto.Zone;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ComputationService {
 
     private static final int DEFAULT_ZONE = 20;

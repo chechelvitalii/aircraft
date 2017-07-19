@@ -1,12 +1,18 @@
 package com.cv.aircraft.service;
 
 import com.cv.aircraft.dto.Zone;
-
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
-public class AircaraftServiceTest {
+@SpringBootTest
+@RunWith(SpringRunner.class)
+public class AircraftServiceTest {
+    @Autowired
+    private AircraftService aircraftService;
 
-    private AircaraftService aircaraftService = new AircaraftService();
     @Test
     public void shouldGetAircraftsInZone() {
         //GIVEN
@@ -14,8 +20,9 @@ public class AircaraftServiceTest {
         Zone.BottomRight bottomRight = new Zone.BottomRight(50.163643592255546, 31.068612426519394);
         Zone zone = new Zone(topLeft, bottomRight);
         //WHEN
-        aircaraftService.getAircraftsIn(zone);
+        aircraftService.getAircraftsIn(zone);
         //THEN
+        //TODO mock restTemplate ?
     }
 
 }

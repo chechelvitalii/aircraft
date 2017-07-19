@@ -20,11 +20,11 @@ public class ComputationServiceTest {
         Zone computeZone = computationService.computeZone(latitude, longitude);
         //THEN
         Zone.TopLeft topLeft = computeZone.getTopLeft();
-        assertThat(topLeft.getLatitude(),is(Double.valueOf("50.52407003079133")));
-        assertThat(topLeft.getLongitude(),is(Double.valueOf("30.708689361810684")));
+        assertThat(topLeft.getLatitude(),is(Double.valueOf("50.52")));
+        assertThat(topLeft.getLongitude(),is(Double.valueOf("30.71")));
         Zone.BottomRight bottomRight = computeZone.getBottomRight();
-        assertThat(bottomRight.getLatitude(),is(Double.valueOf("50.163643592255546")));
-        assertThat(bottomRight.getLongitude(),is(Double.valueOf("31.068612426519394")));
+        assertThat(bottomRight.getLatitude(),is(Double.valueOf("50.16")));
+        assertThat(bottomRight.getLongitude(),is(Double.valueOf("31.07")));
     }
 
 }
