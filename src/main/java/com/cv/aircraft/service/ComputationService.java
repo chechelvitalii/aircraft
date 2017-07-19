@@ -10,10 +10,10 @@ public class ComputationService {
 
     public Zone computeZone(Float latitude, Float longitude) {
         double topLatitude = latitude + getDefaultZoneLatitude(latitude);
-        double topLongitude = longitude + getDefaultZoneLongitude();
+        double topLongitude = longitude - getDefaultZoneLongitude();
         Zone.TopLeft topLeft = new Zone.TopLeft(topLatitude, topLongitude);
         double bottomLatitude = latitude - getDefaultZoneLatitude(latitude);
-        double bottomLongitude = longitude - getDefaultZoneLongitude();
+        double bottomLongitude = longitude + getDefaultZoneLongitude();
         Zone.BottomRight bottomRight = new Zone.BottomRight(bottomLatitude, bottomLongitude);
 
         return new Zone(topLeft, bottomRight);
@@ -21,10 +21,10 @@ public class ComputationService {
 
     private double getDefaultZoneLatitude(Float latitude) {
         double latitudeKhmPerDegree = Math.cos(latitude) * EQUATOR_LATITUDE_KHM_PER_DEGREE;
-        return (DEFAULT_ZONE / latitudeKhmPerDegree) * DEFAULT_ZONE;
+        return DEFAULT_ZONE / latitudeKhmPerDegree;
     }
 
     private double getDefaultZoneLongitude() {
-        return (DEFAULT_ZONE / LONGITUDE_KHM_PER_DEGREE) * DEFAULT_ZONE;
+        return DEFAULT_ZONE / LONGITUDE_KHM_PER_DEGREE;
     }
 }
