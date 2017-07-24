@@ -1,5 +1,6 @@
 package com.cv.aircraft.service;
 
+import com.cv.aircraft.dto.AircraftInfo;
 import com.cv.aircraft.dto.Zone;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +24,18 @@ public class AircraftService {
     public static final String AIRCRAFT_ID_INFORMATION = "\\[.+]";
     public static final String CONSTANT_REPLACE_VALUE = "replaceValue";
     public static final String FIELD_SPLITTER = ",\"";
+
     @Autowired
     private RestTemplate restTemplate;
 
-    @Value("${url.aircraft_id_in_zone}")
-    private String aircraftIdsInZoneUrl;
+    @Value("${url.online.aircraft.id}")
+    private String onlineAircraftIdsUrl;
+
+    public List<AircraftInfo> getAircraftInfos(Zone zone) {
+        List<AircraftInfo> aircraftInfos = new ArrayList<>();
+        List<String> onlineAircraftIdsInZone = getOnlineAircraftIdsInZone(zone);
+        return aircraftInfos;
+    }
 
     public List<String> getOnlineAircraftIdsInZone(Zone zone) {
         Zone.TopLeft topLeft = zone.getTopLeft();
@@ -41,7 +49,7 @@ public class AircraftService {
     }
 
     private String prepareUrl(Zone.TopLeft topLeft, Zone.BottomRight bottomRight) {
-        return aircraftIdsInZoneUrl
+        return onlineAircraftIdsUrl
                 + topLeft.getLatitude() + ","
                 + bottomRight.getLatitude() + ","
                 + topLeft.getLongitude() + ","
