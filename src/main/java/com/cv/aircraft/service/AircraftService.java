@@ -29,7 +29,7 @@ public class AircraftService {
     @Value("${url.aircraft_id_in_zone}")
     private String aircraftIdsInZoneUrl;
 
-    public List<String> getAircraftIdsInZone(Zone zone) {
+    public List<String> getOnlineAircraftIdsInZone(Zone zone) {
         Zone.TopLeft topLeft = zone.getTopLeft();
         Zone.BottomRight bottomRight = zone.getBottomRight();
         String preparedUrl = prepareUrl(topLeft, bottomRight);

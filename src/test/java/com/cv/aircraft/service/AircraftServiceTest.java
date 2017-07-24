@@ -43,7 +43,7 @@ public class AircraftServiceTest {
         when(restTemplate.exchange(anyString(), any(HttpMethod.class), any(HttpEntity.class), eq(String.class))).thenReturn(responseEntity);
         //WHEN
         Zone zone = createZone();
-        List<String> aircrafts = aircraftService.getAircraftIdsInZone(zone);
+        List<String> aircrafts = aircraftService.getOnlineAircraftIdsInZone(zone);
         //THEN
         assertThat(aircrafts, containsInAnyOrder("e2760b4","e27759c", "e2787d5", "e277c6e", "e27a778"));
     }
