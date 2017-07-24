@@ -1,7 +1,7 @@
 package com.cv.aircraft.telegram;
 
 import com.cv.aircraft.dto.Zone;
-import com.cv.aircraft.service.ComputationService;
+import com.cv.aircraft.service.DistanceService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
@@ -17,10 +17,10 @@ public class Bot extends TelegramLongPollingBot {
     public static final String TOKEN = "391777415:AAGSrUbXMaCFqVyeR6v5fyFDqIQnVab3-Jc";
     public static final String BOT_NAME = "K1evbot";
 
-    private ComputationService computationService;
+    private DistanceService distanceService;
 
     public Bot(ApplicationContext context) {
-        this.computationService = context.getBean(ComputationService.class);
+        this.distanceService = context.getBean(DistanceService.class);
     }
 
     @Override
@@ -62,6 +62,6 @@ public class Bot extends TelegramLongPollingBot {
     private void showAircrafts(Message message) {
         Float latitude = message.getLocation().getLatitude();
         Float longitude = message.getLocation().getLongitude();
-        Zone computeZone = computationService.computeZone(latitude, longitude);
+        Zone computeZone = distanceService.computeZone(latitude, longitude);
     }
 }

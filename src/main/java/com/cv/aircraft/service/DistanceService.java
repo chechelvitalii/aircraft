@@ -4,7 +4,7 @@ import com.cv.aircraft.dto.Zone;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ComputationService {
+public class DistanceService {
 
     private static final int DEFAULT_ZONE = 20;
     private static final float LONGITUDE_KHM_PER_DEGREE = Float.parseFloat("40008.55") / 360;
