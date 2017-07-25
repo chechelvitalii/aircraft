@@ -1,6 +1,8 @@
 package com.cv.aircraft.service;
 
 import com.cv.aircraft.dto.Zone;
+import com.jayway.jsonpath.DocumentContext;
+import com.jayway.jsonpath.JsonPath;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -10,15 +12,24 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
+import org.w3c.dom.Document;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.InputStream;
 import java.util.List;
 
+import static org.apache.commons.codec.CharEncoding.UTF_8;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsInAnyOrder;
-import static org.hamcrest.Matchers.hasItems;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Matchers.eq;
+import static org.mockito.Matchers.*;
 import static org.mockito.Mockito.when;
 import static org.springframework.http.HttpStatus.OK;
 
@@ -45,7 +56,7 @@ public class AircraftServiceTest {
         Zone zone = createZone();
         List<String> aircrafts = aircraftService.getOnlineAircraftIdsInZone(zone);
         //THEN
-        assertThat(aircrafts, containsInAnyOrder("e2760b4","e27759c", "e2787d5", "e277c6e", "e27a778"));
+        assertThat(aircrafts, containsInAnyOrder("e2760b4", "e27759c", "e2787d5", "e277c6e", "e27a778"));
     }
 
     private Zone createZone() {
@@ -54,4 +65,21 @@ public class AircraftServiceTest {
         return new Zone(topLeft, bottomRight);
     }
 
+    @Test
+    public void name() throws Exception {
+
+        String json = "{\n" +
+                "  \"geometries\" : \n" +
+                "  [{\n" +
+                "      \"xmin\" : 4, \n" +
+                "      \"ymin\" : 60, \n" +
+                "      \"xmax\" : 25, \n" +
+                "      \"ymax\" : 41\n" +
+                "    }\n" +
+                "  ]\n" +
+                "}\n";
+        DocumentContext context = JsonPath.parse(json);
+        Object read = JsonPath.read(json, "$.geometries[0].xmin");
+        System.out.println(read);
+    }
 }
