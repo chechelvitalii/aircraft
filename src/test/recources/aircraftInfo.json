@@ -1,0 +1,1579 @@
+{
+  "identification": {
+    "id": "e3c11ba",
+    "row": 4230730731,
+    "number": {
+      "default": "Z6556",
+      "alternative": null
+    },
+    "callsign": "UDN556"
+  },
+  "status": {
+    "live": true,
+    "text": "Estimated- 13:59",
+    "icon": "green",
+    "estimated": null,
+    "ambiguous": false,
+    "generic": {
+      "status": {
+        "text": "estimated",
+        "color": "green",
+        "type": "arrival"
+      },
+      "eventTime": {
+        "utc": 1501066752,
+        "local": 1501077552
+      }
+    }
+  },
+  "level": "limited",
+  "aircraft": {
+    "model": {
+      "code": "E145",
+      "text": "Embraer ERJ-145LR"
+    },
+    "registration": "UR-DNR",
+    "hex": "508211",
+    "age": null,
+    "msn": null,
+    "images": {
+      "thumbnails": [
+        {
+          "src": "https:\/\/cdn.jetphotos.com\/200\/6\/26071_1499321981_tb.jpg?v=0",
+          "link": "https:\/\/www.jetphotos.com\/photo\/8649044",
+          "copyright": "John Ballantyne",
+          "source": "Jetphotos"
+        },
+        {
+          "src": "https:\/\/cdn.jetphotos.com\/200\/5\/31630_1496313066_tb.jpg?v=0",
+          "link": "https:\/\/www.jetphotos.com\/photo\/8613557",
+          "copyright": "Chris Jilli",
+          "source": "Jetphotos"
+        },
+        {
+          "src": "https:\/\/cdn.jetphotos.com\/200\/5\/90351_1414782267_tb.jpg?v=0",
+          "link": "https:\/\/www.jetphotos.com\/photo\/7926371",
+          "copyright": "Brian T Richards",
+          "source": "Jetphotos"
+        },
+        {
+          "src": "https:\/\/cdn.jetphotos.com\/200\/5\/83108_1419242724_tb.jpg?v=0",
+          "link": "https:\/\/www.jetphotos.com\/photo\/7952157",
+          "copyright": "Brian T Richards",
+          "source": "Jetphotos"
+        },
+        {
+          "src": "https:\/\/cdn.jetphotos.com\/200\/6\/59783_1414931481_tb.jpg?v=0",
+          "link": "https:\/\/www.jetphotos.com\/photo\/7927451",
+          "copyright": "Brian T Richards",
+          "source": "Jetphotos"
+        }
+      ],
+      "medium": [
+        {
+          "src": "https:\/\/cdn.jetphotos.com\/400\/6\/26071_1499321981.jpg?v=0",
+          "link": "https:\/\/www.jetphotos.com\/photo\/8649044",
+          "copyright": "John Ballantyne",
+          "source": "Jetphotos"
+        },
+        {
+          "src": "https:\/\/cdn.jetphotos.com\/400\/5\/31630_1496313066.jpg?v=0",
+          "link": "https:\/\/www.jetphotos.com\/photo\/8613557",
+          "copyright": "Chris Jilli",
+          "source": "Jetphotos"
+        },
+        {
+          "src": "https:\/\/cdn.jetphotos.com\/400\/5\/90351_1414782267.jpg?v=0",
+          "link": "https:\/\/www.jetphotos.com\/photo\/7926371",
+          "copyright": "Brian T Richards",
+          "source": "Jetphotos"
+        },
+        {
+          "src": "https:\/\/cdn.jetphotos.com\/400\/5\/83108_1419242724.jpg?v=0",
+          "link": "https:\/\/www.jetphotos.com\/photo\/7952157",
+          "copyright": "Brian T Richards",
+          "source": "Jetphotos"
+        },
+        {
+          "src": "https:\/\/cdn.jetphotos.com\/400\/6\/59783_1414931481.jpg?v=0",
+          "link": "https:\/\/www.jetphotos.com\/photo\/7927451",
+          "copyright": "Brian T Richards",
+          "source": "Jetphotos"
+        }
+      ],
+      "large": [
+        {
+          "src": "https:\/\/cdn.jetphotos.com\/640cb\/6\/26071_1499321981.jpg?v=0",
+          "link": "https:\/\/www.jetphotos.com\/photo\/8649044",
+          "copyright": "John Ballantyne",
+          "source": "Jetphotos"
+        },
+        {
+          "src": "https:\/\/cdn.jetphotos.com\/640cb\/5\/31630_1496313066.jpg?v=0",
+          "link": "https:\/\/www.jetphotos.com\/photo\/8613557",
+          "copyright": "Chris Jilli",
+          "source": "Jetphotos"
+        },
+        {
+          "src": "https:\/\/cdn.jetphotos.com\/640cb\/5\/90351_1414782267.jpg?v=0",
+          "link": "https:\/\/www.jetphotos.com\/photo\/7926371",
+          "copyright": "Brian T Richards",
+          "source": "Jetphotos"
+        },
+        {
+          "src": "https:\/\/cdn.jetphotos.com\/640cb\/5\/83108_1419242724.jpg?v=0",
+          "link": "https:\/\/www.jetphotos.com\/photo\/7952157",
+          "copyright": "Brian T Richards",
+          "source": "Jetphotos"
+        },
+        {
+          "src": "https:\/\/cdn.jetphotos.com\/640cb\/6\/59783_1414931481.jpg?v=0",
+          "link": "https:\/\/www.jetphotos.com\/photo\/7927451",
+          "copyright": "Brian T Richards",
+          "source": "Jetphotos"
+        }
+      ]
+    }
+  },
+  "airline": {
+    "name": "Windrose Airlines",
+    "short": "Windrose Airlines",
+    "code": {
+      "iata": "7W",
+      "icao": "WRC"
+    },
+    "url": "windrose-airlines-wrc"
+  },
+  "owner": null,
+  "airspace": null,
+  "airport": {
+    "origin": {
+      "name": "Sofia Airport",
+      "code": {
+        "iata": "SOF",
+        "icao": "LBSF"
+      },
+      "position": {
+        "latitude": 42.69519,
+        "longitude": 23.40616,
+        "altitude": 1742,
+        "country": {
+          "name": "Bulgaria",
+          "code": "BGR"
+        },
+        "region": {
+          "city": "Sofia"
+        }
+      },
+      "timezone": {
+        "name": "Europe\/Sofia",
+        "offset": 10800,
+        "offsetHours": "3:00",
+        "abbr": "EEST",
+        "abbrName": "Eastern European Summer Time",
+        "isDst": true
+      },
+      "visible": true,
+      "website": "http:\/\/www.sofia-airport.bg\/default.aspx",
+      "info": {
+        "terminal": "1",
+        "baggage": null,
+        "gate": null
+      }
+    },
+    "destination": {
+      "name": "Kiev Boryspil International Airport",
+      "code": {
+        "iata": "KBP",
+        "icao": "UKBB"
+      },
+      "position": {
+        "latitude": 50.345001,
+        "longitude": 30.89472,
+        "altitude": 427,
+        "country": {
+          "name": "Ukraine",
+          "code": "UKR"
+        },
+        "region": {
+          "city": "Kiev"
+        }
+      },
+      "timezone": {
+        "name": "Europe\/Kiev",
+        "offset": 10800,
+        "offsetHours": "3:00",
+        "abbr": "EEST",
+        "abbrName": "Eastern European Summer Time",
+        "isDst": true
+      },
+      "visible": true,
+      "website": "http:\/\/www.kbp.aero\/indexeng.php",
+      "info": {
+        "terminal": null,
+        "baggage": null,
+        "gate": null
+      }
+    },
+    "real": null
+  },
+  "flightHistory": {
+    "aircraft": [
+      {
+        "identification": {
+          "id": "e3bcc66",
+          "number": {
+            "default": "Z6555"
+          }
+        },
+        "airport": {
+          "origin": {
+            "name": "Kiev Boryspil International Airport",
+            "code": {
+              "iata": "KBP",
+              "icao": "UKBB"
+            },
+            "position": {
+              "latitude": 50.345001,
+              "longitude": 30.89472,
+              "altitude": 427,
+              "country": {
+                "name": "Ukraine",
+                "code": "UKR"
+              },
+              "region": {
+                "city": "Kiev"
+              }
+            },
+            "timezone": {
+              "name": "Europe\/Kiev",
+              "offset": 10800,
+              "offsetHours": "3:00",
+              "abbr": "EEST",
+              "abbrName": "Eastern European Summer Time",
+              "isDst": true
+            },
+            "visible": true,
+            "website": "http:\/\/www.kbp.aero\/indexeng.php"
+          },
+          "destination": {
+            "name": "Sofia Airport",
+            "code": {
+              "iata": "SOF",
+              "icao": "LBSF"
+            },
+            "position": {
+              "latitude": 42.69519,
+              "longitude": 23.40616,
+              "altitude": 1742,
+              "country": {
+                "name": "Bulgaria",
+                "code": "BGR"
+              },
+              "region": {
+                "city": "Sofia"
+              }
+            },
+            "timezone": {
+              "name": "Europe\/Sofia",
+              "offset": 10800,
+              "offsetHours": "3:00",
+              "abbr": "EEST",
+              "abbrName": "Eastern European Summer Time",
+              "isDst": true
+            },
+            "visible": true,
+            "website": "http:\/\/www.sofia-airport.bg\/default.aspx"
+          }
+        },
+        "time": {
+          "real": {
+            "departure": 1501051187
+          }
+        }
+      },
+      {
+        "identification": {
+          "id": "e3b8003",
+          "number": {
+            "default": "PS46"
+          }
+        },
+        "airport": {
+          "origin": {
+            "name": "Kherson International Airport",
+            "code": {
+              "iata": "KHE",
+              "icao": "UKOH"
+            },
+            "position": {
+              "latitude": 46.672394,
+              "longitude": 32.507988,
+              "altitude": 150,
+              "country": {
+                "name": "Ukraine",
+                "code": "UKR"
+              },
+              "region": {
+                "city": "Kherson"
+              }
+            },
+            "timezone": {
+              "name": "Europe\/Kiev",
+              "offset": 10800,
+              "offsetHours": "3:00",
+              "abbr": "EEST",
+              "abbrName": "Eastern European Summer Time",
+              "isDst": true
+            },
+            "visible": true,
+            "website": null
+          },
+          "destination": {
+            "name": "Kiev Boryspil International Airport",
+            "code": {
+              "iata": "KBP",
+              "icao": "UKBB"
+            },
+            "position": {
+              "latitude": 50.345001,
+              "longitude": 30.89472,
+              "altitude": 427,
+              "country": {
+                "name": "Ukraine",
+                "code": "UKR"
+              },
+              "region": {
+                "city": "Kiev"
+              }
+            },
+            "timezone": {
+              "name": "Europe\/Kiev",
+              "offset": 10800,
+              "offsetHours": "3:00",
+              "abbr": "EEST",
+              "abbrName": "Eastern European Summer Time",
+              "isDst": true
+            },
+            "visible": true,
+            "website": "http:\/\/www.kbp.aero\/indexeng.php"
+          }
+        },
+        "time": {
+          "real": {
+            "departure": 1501040284
+          }
+        }
+      },
+      {
+        "identification": {
+          "id": "e3a1c42",
+          "number": {
+            "default": "PS45"
+          }
+        },
+        "airport": {
+          "origin": {
+            "name": "Kiev Boryspil International Airport",
+            "code": {
+              "iata": "KBP",
+              "icao": "UKBB"
+            },
+            "position": {
+              "latitude": 50.345001,
+              "longitude": 30.89472,
+              "altitude": 427,
+              "country": {
+                "name": "Ukraine",
+                "code": "UKR"
+              },
+              "region": {
+                "city": "Kiev"
+              }
+            },
+            "timezone": {
+              "name": "Europe\/Kiev",
+              "offset": 10800,
+              "offsetHours": "3:00",
+              "abbr": "EEST",
+              "abbrName": "Eastern European Summer Time",
+              "isDst": true
+            },
+            "visible": true,
+            "website": "http:\/\/www.kbp.aero\/indexeng.php"
+          },
+          "destination": {
+            "name": "Kherson International Airport",
+            "code": {
+              "iata": "KHE",
+              "icao": "UKOH"
+            },
+            "position": {
+              "latitude": 46.672394,
+              "longitude": 32.507988,
+              "altitude": 150,
+              "country": {
+                "name": "Ukraine",
+                "code": "UKR"
+              },
+              "region": {
+                "city": "Kherson"
+              }
+            },
+            "timezone": {
+              "name": "Europe\/Kiev",
+              "offset": 10800,
+              "offsetHours": "3:00",
+              "abbr": "EEST",
+              "abbrName": "Eastern European Summer Time",
+              "isDst": true
+            },
+            "visible": true,
+            "website": null
+          }
+        },
+        "time": {
+          "real": {
+            "departure": 1501002477
+          }
+        }
+      },
+      {
+        "identification": {
+          "id": "e3998c9",
+          "number": {
+            "default": "PS88"
+          }
+        },
+        "airport": {
+          "origin": {
+            "name": "Zaporizhia International Airport",
+            "code": {
+              "iata": "OZH",
+              "icao": "UKDE"
+            },
+            "position": {
+              "latitude": 47.867001,
+              "longitude": 35.315689,
+              "altitude": 373,
+              "country": {
+                "name": "Ukraine",
+                "code": "UKR"
+              },
+              "region": {
+                "city": "Zaporizhia"
+              }
+            },
+            "timezone": {
+              "name": "Europe\/Zaporozhye",
+              "offset": 10800,
+              "offsetHours": "3:00",
+              "abbr": "EEST",
+              "abbrName": "Eastern European Summer Time",
+              "isDst": true
+            },
+            "visible": true,
+            "website": null
+          },
+          "destination": {
+            "name": "Kiev Boryspil International Airport",
+            "code": {
+              "iata": "KBP",
+              "icao": "UKBB"
+            },
+            "position": {
+              "latitude": 50.345001,
+              "longitude": 30.89472,
+              "altitude": 427,
+              "country": {
+                "name": "Ukraine",
+                "code": "UKR"
+              },
+              "region": {
+                "city": "Kiev"
+              }
+            },
+            "timezone": {
+              "name": "Europe\/Kiev",
+              "offset": 10800,
+              "offsetHours": "3:00",
+              "abbr": "EEST",
+              "abbrName": "Eastern European Summer Time",
+              "isDst": true
+            },
+            "visible": true,
+            "website": "http:\/\/www.kbp.aero\/indexeng.php"
+          }
+        },
+        "time": {
+          "real": {
+            "departure": 1500991178
+          }
+        }
+      }
+    ]
+  },
+  "ems": null,
+  "availability": [
+    "AGE",
+    "MSN"
+  ],
+  "time": {
+    "scheduled": {
+      "departure": 1501059600,
+      "arrival": 1501066800
+    },
+    "real": {
+      "departure": 1501060806,
+      "arrival": null
+    },
+    "estimated": {
+      "departure": null,
+      "arrival": 1501066752
+    },
+    "other": {
+      "eta": 1501066752,
+      "updated": 1501062866
+    },
+    "historical": {
+      "flighttime": "6425",
+      "delay": "-85"
+    }
+  },
+  "trail": [
+    {
+      "lat": 50.564419,
+      "lng": 30.99737,
+      "alt": 3816,
+      "spd": 180,
+      "ts": 1501066462,
+      "hd": 295
+    },
+    {
+      "lat": 50.543621,
+      "lng": 31.034664,
+      "alt": 4375,
+      "spd": 180,
+      "ts": 1501066438,
+      "hd": 256
+    },
+    {
+      "lat": 50.517307,
+      "lng": 31.04368,
+      "alt": 4875,
+      "spd": 180,
+      "ts": 1501066416,
+      "hd": 4
+    },
+    {
+      "lat": 50.502522,
+      "lng": 31.04022,
+      "alt": 5175,
+      "spd": 180,
+      "ts": 1501066401,
+      "hd": 4
+    },
+    {
+      "lat": 50.488674,
+      "lng": 31.038273,
+      "alt": 5456,
+      "spd": 180,
+      "ts": 1501066380,
+      "hd": 11
+    },
+    {
+      "lat": 50.464993,
+      "lng": 31.031008,
+      "alt": 5899,
+      "spd": 180,
+      "ts": 1501066368,
+      "hd": 10
+    },
+    {
+      "lat": 50.450302,
+      "lng": 31.02599,
+      "alt": 6175,
+      "spd": 262,
+      "ts": 1501066350,
+      "hd": 12
+    },
+    {
+      "lat": 50.429974,
+      "lng": 31.019564,
+      "alt": 6550,
+      "spd": 262,
+      "ts": 1501066337,
+      "hd": 12
+    },
+    {
+      "lat": 50.412197,
+      "lng": 31.012985,
+      "alt": 6914,
+      "spd": 264,
+      "ts": 1501066320,
+      "hd": 12
+    },
+    {
+      "lat": 50.40271,
+      "lng": 31.00963,
+      "alt": 7090,
+      "spd": 264,
+      "ts": 1501066309,
+      "hd": 13
+    },
+    {
+      "lat": 50.387825,
+      "lng": 31.004282,
+      "alt": 7429,
+      "spd": 182,
+      "ts": 1501066297,
+      "hd": 15
+    },
+    {
+      "lat": 50.374134,
+      "lng": 30.998474,
+      "alt": 7683,
+      "spd": 182,
+      "ts": 1501066285,
+      "hd": 9
+    },
+    {
+      "lat": 50.354733,
+      "lng": 30.993105,
+      "alt": 8125,
+      "spd": 266,
+      "ts": 1501066272,
+      "hd": 9
+    },
+    {
+      "lat": 50.336147,
+      "lng": 30.986719,
+      "alt": 8416,
+      "spd": 266,
+      "ts": 1501066255,
+      "hd": 13
+    },
+    {
+      "lat": 50.321915,
+      "lng": 30.981497,
+      "alt": 8708,
+      "spd": 266,
+      "ts": 1501066243,
+      "hd": 13
+    },
+    {
+      "lat": 50.308113,
+      "lng": 30.976383,
+      "alt": 8968,
+      "spd": 268,
+      "ts": 1501066231,
+      "hd": 11
+    },
+    {
+      "lat": 50.292496,
+      "lng": 30.971277,
+      "alt": 9250,
+      "spd": 268,
+      "ts": 1501066219,
+      "hd": 12
+    },
+    {
+      "lat": 50.277756,
+      "lng": 30.966581,
+      "alt": 9575,
+      "spd": 270,
+      "ts": 1501066207,
+      "hd": 11
+    },
+    {
+      "lat": 50.263535,
+      "lng": 30.962006,
+      "alt": 9807,
+      "spd": 270,
+      "ts": 1501066196,
+      "hd": 8
+    },
+    {
+      "lat": 50.244019,
+      "lng": 30.956446,
+      "alt": 10172,
+      "spd": 274,
+      "ts": 1501066181,
+      "hd": 10
+    },
+    {
+      "lat": 50.228146,
+      "lng": 30.951777,
+      "alt": 10453,
+      "spd": 192,
+      "ts": 1501066165,
+      "hd": 10
+    },
+    {
+      "lat": 50.213146,
+      "lng": 30.947271,
+      "alt": 10748,
+      "spd": 276,
+      "ts": 1501066152,
+      "hd": 10
+    },
+    {
+      "lat": 50.193623,
+      "lng": 30.941229,
+      "alt": 11224,
+      "spd": 198,
+      "ts": 1501066140,
+      "hd": 11
+    },
+    {
+      "lat": 50.177864,
+      "lng": 30.935699,
+      "alt": 11389,
+      "spd": 198,
+      "ts": 1501066125,
+      "hd": 11
+    },
+    {
+      "lat": 50.162251,
+      "lng": 30.930534,
+      "alt": 11674,
+      "spd": 198,
+      "ts": 1501066113,
+      "hd": 10
+    },
+    {
+      "lat": 50.118088,
+      "lng": 30.914848,
+      "alt": 12522,
+      "spd": 288,
+      "ts": 1501066081,
+      "hd": 16
+    },
+    {
+      "lat": 50.075405,
+      "lng": 30.894438,
+      "alt": 13406,
+      "spd": 208,
+      "ts": 1501066042,
+      "hd": 19
+    },
+    {
+      "lat": 50.053646,
+      "lng": 30.882326,
+      "alt": 13875,
+      "spd": 294,
+      "ts": 1501066027,
+      "hd": 26
+    },
+    {
+      "lat": 50.044361,
+      "lng": 30.87575,
+      "alt": 14100,
+      "spd": 212,
+      "ts": 1501066018,
+      "hd": 33
+    },
+    {
+      "lat": 50.029324,
+      "lng": 30.863529,
+      "alt": 14500,
+      "spd": 214,
+      "ts": 1501066004,
+      "hd": 11
+    },
+    {
+      "lat": 49.962257,
+      "lng": 30.863623,
+      "alt": 15449,
+      "spd": 220,
+      "ts": 1501065964,
+      "hd": 11
+    },
+    {
+      "lat": 49.918724,
+      "lng": 30.849339,
+      "alt": 16321,
+      "spd": 302,
+      "ts": 1501065930,
+      "hd": 11
+    },
+    {
+      "lat": 49.874908,
+      "lng": 30.835106,
+      "alt": 17175,
+      "spd": 304,
+      "ts": 1501065899,
+      "hd": 11
+    },
+    {
+      "lat": 49.782143,
+      "lng": 30.804758,
+      "alt": 18925,
+      "spd": 310,
+      "ts": 1501065837,
+      "hd": 11
+    },
+    {
+      "lat": 49.692799,
+      "lng": 30.774479,
+      "alt": 20599,
+      "spd": 242,
+      "ts": 1501065771,
+      "hd": 11
+    },
+    {
+      "lat": 49.585041,
+      "lng": 30.740911,
+      "alt": 22525,
+      "spd": 248,
+      "ts": 1501065703,
+      "hd": 10
+    },
+    {
+      "lat": 49.499744,
+      "lng": 30.717213,
+      "alt": 23999,
+      "spd": 334,
+      "ts": 1501065637,
+      "hd": 7
+    },
+    {
+      "lat": 49.403366,
+      "lng": 30.694115,
+      "alt": 25625,
+      "spd": 258,
+      "ts": 1501065576,
+      "hd": 2
+    },
+    {
+      "lat": 49.386513,
+      "lng": 30.692705,
+      "alt": 25900,
+      "spd": 342,
+      "ts": 1501065568,
+      "hd": 10
+    },
+    {
+      "lat": 49.323231,
+      "lng": 30.663322,
+      "alt": 27025,
+      "spd": 270,
+      "ts": 1501065526,
+      "hd": 26
+    },
+    {
+      "lat": 49.238373,
+      "lng": 30.58065,
+      "alt": 28499,
+      "spd": 272,
+      "ts": 1501065462,
+      "hd": 35
+    },
+    {
+      "lat": 49.158432,
+      "lng": 30.49017,
+      "alt": 29962,
+      "spd": 276,
+      "ts": 1501065401,
+      "hd": 35
+    },
+    {
+      "lat": 49.06855,
+      "lng": 30.38838,
+      "alt": 31450,
+      "spd": 368,
+      "ts": 1501065334,
+      "hd": 35
+    },
+    {
+      "lat": 48.981499,
+      "lng": 30.290491,
+      "alt": 32761,
+      "spd": 394,
+      "ts": 1501065270,
+      "hd": 35
+    },
+    {
+      "lat": 48.877842,
+      "lng": 30.175318,
+      "alt": 33814,
+      "spd": 328,
+      "ts": 1501065203,
+      "hd": 35
+    },
+    {
+      "lat": 48.787056,
+      "lng": 30.074631,
+      "alt": 34000,
+      "spd": 406,
+      "ts": 1501065142,
+      "hd": 35
+    },
+    {
+      "lat": 48.691532,
+      "lng": 29.96792,
+      "alt": 34000,
+      "spd": 404,
+      "ts": 1501065078,
+      "hd": 35
+    },
+    {
+      "lat": 48.595169,
+      "lng": 29.859409,
+      "alt": 34000,
+      "spd": 404,
+      "ts": 1501065016,
+      "hd": 36
+    },
+    {
+      "lat": 48.506439,
+      "lng": 29.760977,
+      "alt": 34000,
+      "spd": 326,
+      "ts": 1501064953,
+      "hd": 32
+    },
+    {
+      "lat": 48.402252,
+      "lng": 29.667118,
+      "alt": 34000,
+      "spd": 318,
+      "ts": 1501064891,
+      "hd": 28
+    },
+    {
+      "lat": 48.295517,
+      "lng": 29.576689,
+      "alt": 34000,
+      "spd": 408,
+      "ts": 1501064828,
+      "hd": 29
+    },
+    {
+      "lat": 48.190723,
+      "lng": 29.487579,
+      "alt": 34000,
+      "spd": 408,
+      "ts": 1501064763,
+      "hd": 28
+    },
+    {
+      "lat": 48.087139,
+      "lng": 29.401587,
+      "alt": 34000,
+      "spd": 322,
+      "ts": 1501064700,
+      "hd": 28
+    },
+    {
+      "lat": 47.980602,
+      "lng": 29.314129,
+      "alt": 34000,
+      "spd": 406,
+      "ts": 1501064635,
+      "hd": 28
+    },
+    {
+      "lat": 47.878181,
+      "lng": 29.224159,
+      "alt": 33999,
+      "spd": 408,
+      "ts": 1501064572,
+      "hd": 32
+    },
+    {
+      "lat": 47.782688,
+      "lng": 29.129831,
+      "alt": 34000,
+      "spd": 406,
+      "ts": 1501064509,
+      "hd": 32
+    },
+    {
+      "lat": 47.6889,
+      "lng": 29.037453,
+      "alt": 34000,
+      "spd": 316,
+      "ts": 1501064448,
+      "hd": 32
+    },
+    {
+      "lat": 47.589706,
+      "lng": 28.940908,
+      "alt": 34000,
+      "spd": 310,
+      "ts": 1501064386,
+      "hd": 32
+    },
+    {
+      "lat": 47.491241,
+      "lng": 28.845022,
+      "alt": 33999,
+      "spd": 400,
+      "ts": 1501064324,
+      "hd": 32
+    },
+    {
+      "lat": 47.398216,
+      "lng": 28.754663,
+      "alt": 33999,
+      "spd": 402,
+      "ts": 1501064261,
+      "hd": 32
+    },
+    {
+      "lat": 47.298687,
+      "lng": 28.658508,
+      "alt": 34000,
+      "spd": 306,
+      "ts": 1501064198,
+      "hd": 32
+    },
+    {
+      "lat": 47.198689,
+      "lng": 28.562357,
+      "alt": 34000,
+      "spd": 404,
+      "ts": 1501064135,
+      "hd": 32
+    },
+    {
+      "lat": 47.097748,
+      "lng": 28.465693,
+      "alt": 34000,
+      "spd": 304,
+      "ts": 1501064072,
+      "hd": 32
+    },
+    {
+      "lat": 46.997265,
+      "lng": 28.370298,
+      "alt": 34000,
+      "spd": 408,
+      "ts": 1501064008,
+      "hd": 31
+    },
+    {
+      "lat": 46.895767,
+      "lng": 28.274927,
+      "alt": 34000,
+      "spd": 306,
+      "ts": 1501063942,
+      "hd": 32
+    },
+    {
+      "lat": 46.794724,
+      "lng": 28.179245,
+      "alt": 34000,
+      "spd": 308,
+      "ts": 1501063879,
+      "hd": 33
+    },
+    {
+      "lat": 46.694122,
+      "lng": 28.077938,
+      "alt": 34000,
+      "spd": 308,
+      "ts": 1501063814,
+      "hd": 33
+    },
+    {
+      "lat": 46.599838,
+      "lng": 27.982992,
+      "alt": 34000,
+      "spd": 418,
+      "ts": 1501063752,
+      "hd": 33
+    },
+    {
+      "lat": 46.497822,
+      "lng": 27.880919,
+      "alt": 33999,
+      "spd": 422,
+      "ts": 1501063690,
+      "hd": 33
+    },
+    {
+      "lat": 46.39505,
+      "lng": 27.778845,
+      "alt": 34000,
+      "spd": 424,
+      "ts": 1501063626,
+      "hd": 33
+    },
+    {
+      "lat": 46.291191,
+      "lng": 27.675699,
+      "alt": 34000,
+      "spd": 430,
+      "ts": 1501063565,
+      "hd": 33
+    },
+    {
+      "lat": 46.192265,
+      "lng": 27.577637,
+      "alt": 33999,
+      "spd": 428,
+      "ts": 1501063502,
+      "hd": 33
+    },
+    {
+      "lat": 46.087494,
+      "lng": 27.474695,
+      "alt": 34000,
+      "spd": 430,
+      "ts": 1501063438,
+      "hd": 33
+    },
+    {
+      "lat": 45.989033,
+      "lng": 27.378441,
+      "alt": 33999,
+      "spd": 316,
+      "ts": 1501063377,
+      "hd": 33
+    },
+    {
+      "lat": 45.890018,
+      "lng": 27.281931,
+      "alt": 34000,
+      "spd": 430,
+      "ts": 1501063316,
+      "hd": 33
+    },
+    {
+      "lat": 45.784912,
+      "lng": 27.179966,
+      "alt": 34000,
+      "spd": 430,
+      "ts": 1501063255,
+      "hd": 33
+    },
+    {
+      "lat": 45.681133,
+      "lng": 27.07971,
+      "alt": 33999,
+      "spd": 430,
+      "ts": 1501063190,
+      "hd": 33
+    },
+    {
+      "lat": 45.571712,
+      "lng": 26.974745,
+      "alt": 34000,
+      "spd": 430,
+      "ts": 1501063125,
+      "hd": 33
+    },
+    {
+      "lat": 45.461891,
+      "lng": 26.869011,
+      "alt": 34000,
+      "spd": 428,
+      "ts": 1501063063,
+      "hd": 32
+    },
+    {
+      "lat": 45.354568,
+      "lng": 26.768658,
+      "alt": 34000,
+      "spd": 426,
+      "ts": 1501062994,
+      "hd": 31
+    },
+    {
+      "lat": 45.25251,
+      "lng": 26.673872,
+      "alt": 33999,
+      "spd": 306,
+      "ts": 1501062932,
+      "hd": 33
+    },
+    {
+      "lat": 45.149323,
+      "lng": 26.574202,
+      "alt": 34000,
+      "spd": 424,
+      "ts": 1501062866,
+      "hd": 33
+    },
+    {
+      "lat": 45.044998,
+      "lng": 26.477381,
+      "alt": 33999,
+      "spd": 422,
+      "ts": 1501062803,
+      "hd": 33
+    },
+    {
+      "lat": 44.943848,
+      "lng": 26.373869,
+      "alt": 34000,
+      "spd": 420,
+      "ts": 1501062739,
+      "hd": 35
+    },
+    {
+      "lat": 44.846405,
+      "lng": 26.273733,
+      "alt": 34000,
+      "spd": 418,
+      "ts": 1501062677,
+      "hd": 36
+    },
+    {
+      "lat": 44.75127,
+      "lng": 26.172503,
+      "alt": 34000,
+      "spd": 416,
+      "ts": 1501062614,
+      "hd": 35
+    },
+    {
+      "lat": 44.658401,
+      "lng": 26.075867,
+      "alt": 34000,
+      "spd": 298,
+      "ts": 1501062552,
+      "hd": 35
+    },
+    {
+      "lat": 44.558769,
+      "lng": 25.975058,
+      "alt": 33999,
+      "spd": 418,
+      "ts": 1501062490,
+      "hd": 35
+    },
+    {
+      "lat": 44.465744,
+      "lng": 25.878332,
+      "alt": 33999,
+      "spd": 420,
+      "ts": 1501062428,
+      "hd": 36
+    },
+    {
+      "lat": 44.35902,
+      "lng": 25.76779,
+      "alt": 34000,
+      "spd": 302,
+      "ts": 1501062363,
+      "hd": 35
+    },
+    {
+      "lat": 44.266106,
+      "lng": 25.674644,
+      "alt": 33999,
+      "spd": 422,
+      "ts": 1501062302,
+      "hd": 32
+    },
+    {
+      "lat": 44.165161,
+      "lng": 25.582773,
+      "alt": 34000,
+      "spd": 424,
+      "ts": 1501062239,
+      "hd": 35
+    },
+    {
+      "lat": 44.065952,
+      "lng": 25.477501,
+      "alt": 33999,
+      "spd": 428,
+      "ts": 1501062178,
+      "hd": 44
+    },
+    {
+      "lat": 43.979687,
+      "lng": 25.336061,
+      "alt": 34000,
+      "spd": 428,
+      "ts": 1501062110,
+      "hd": 51
+    },
+    {
+      "lat": 43.904766,
+      "lng": 25.205011,
+      "alt": 34025,
+      "spd": 310,
+      "ts": 1501062049,
+      "hd": 51
+    },
+    {
+      "lat": 43.827919,
+      "lng": 25.066315,
+      "alt": 33226,
+      "spd": 424,
+      "ts": 1501061988,
+      "hd": 53
+    },
+    {
+      "lat": 43.759293,
+      "lng": 24.938469,
+      "alt": 32462,
+      "spd": 408,
+      "ts": 1501061926,
+      "hd": 50
+    },
+    {
+      "lat": 43.749901,
+      "lng": 24.922169,
+      "alt": 32315,
+      "spd": 408,
+      "ts": 1501061917,
+      "hd": 48
+    },
+    {
+      "lat": 43.740185,
+      "lng": 24.906023,
+      "alt": 32133,
+      "spd": 408,
+      "ts": 1501061911,
+      "hd": 48
+    },
+    {
+      "lat": 43.696823,
+      "lng": 24.847031,
+      "alt": 31367,
+      "spd": 408,
+      "ts": 1501061878,
+      "hd": 37
+    },
+    {
+      "lat": 43.602898,
+      "lng": 24.74733,
+      "alt": 30324,
+      "spd": 394,
+      "ts": 1501061814,
+      "hd": 36
+    },
+    {
+      "lat": 43.511986,
+      "lng": 24.651917,
+      "alt": 29134,
+      "spd": 382,
+      "ts": 1501061751,
+      "hd": 36
+    },
+    {
+      "lat": 43.4235,
+      "lng": 24.559612,
+      "alt": 27727,
+      "spd": 374,
+      "ts": 1501061686,
+      "hd": 36
+    },
+    {
+      "lat": 43.335629,
+      "lng": 24.468771,
+      "alt": 26182,
+      "spd": 370,
+      "ts": 1501061622,
+      "hd": 35
+    },
+    {
+      "lat": 43.251625,
+      "lng": 24.385368,
+      "alt": 24635,
+      "spd": 362,
+      "ts": 1501061561,
+      "hd": 33
+    },
+    {
+      "lat": 43.162544,
+      "lng": 24.303251,
+      "alt": 23181,
+      "spd": 350,
+      "ts": 1501061499,
+      "hd": 34
+    },
+    {
+      "lat": 43.15202,
+      "lng": 24.293344,
+      "alt": 22998,
+      "spd": 350,
+      "ts": 1501061490,
+      "hd": 37
+    },
+    {
+      "lat": 43.141155,
+      "lng": 24.282095,
+      "alt": 22802,
+      "spd": 348,
+      "ts": 1501061481,
+      "hd": 38
+    },
+    {
+      "lat": 43.131145,
+      "lng": 24.271421,
+      "alt": 22581,
+      "spd": 348,
+      "ts": 1501061473,
+      "hd": 41
+    },
+    {
+      "lat": 43.122017,
+      "lng": 24.260885,
+      "alt": 22390,
+      "spd": 322,
+      "ts": 1501061464,
+      "hd": 47
+    },
+    {
+      "lat": 43.112465,
+      "lng": 24.247234,
+      "alt": 22188,
+      "spd": 322,
+      "ts": 1501061458,
+      "hd": 50
+    },
+    {
+      "lat": 43.090492,
+      "lng": 24.207582,
+      "alt": 21747,
+      "spd": 322,
+      "ts": 1501061433,
+      "hd": 59
+    },
+    {
+      "lat": 43.043633,
+      "lng": 24.092207,
+      "alt": 20017,
+      "spd": 314,
+      "ts": 1501061372,
+      "hd": 60
+    },
+    {
+      "lat": 42.999966,
+      "lng": 23.979343,
+      "alt": 18350,
+      "spd": 306,
+      "ts": 1501061307,
+      "hd": 60
+    },
+    {
+      "lat": 42.976055,
+      "lng": 23.919592,
+      "alt": 17312,
+      "spd": 304,
+      "ts": 1501061271,
+      "hd": 60
+    },
+    {
+      "lat": 42.954849,
+      "lng": 23.866909,
+      "alt": 16486,
+      "spd": 296,
+      "ts": 1501061240,
+      "hd": 61
+    },
+    {
+      "lat": 42.93399,
+      "lng": 23.813396,
+      "alt": 15576,
+      "spd": 292,
+      "ts": 1501061207,
+      "hd": 60
+    },
+    {
+      "lat": 42.910751,
+      "lng": 23.755499,
+      "alt": 14642,
+      "spd": 276,
+      "ts": 1501061171,
+      "hd": 60
+    },
+    {
+      "lat": 42.891277,
+      "lng": 23.70706,
+      "alt": 13550,
+      "spd": 278,
+      "ts": 1501061138,
+      "hd": 60
+    },
+    {
+      "lat": 42.868717,
+      "lng": 23.651035,
+      "alt": 12216,
+      "spd": 270,
+      "ts": 1501061103,
+      "hd": 60
+    },
+    {
+      "lat": 42.859577,
+      "lng": 23.628212,
+      "alt": 11793,
+      "spd": 270,
+      "ts": 1501061087,
+      "hd": 60
+    },
+    {
+      "lat": 42.84996,
+      "lng": 23.60404,
+      "alt": 11139,
+      "spd": 270,
+      "ts": 1501061071,
+      "hd": 60
+    },
+    {
+      "lat": 42.842762,
+      "lng": 23.58621,
+      "alt": 10680,
+      "spd": 262,
+      "ts": 1501061059,
+      "hd": 60
+    },
+    {
+      "lat": 42.835304,
+      "lng": 23.56794,
+      "alt": 10275,
+      "spd": 262,
+      "ts": 1501061047,
+      "hd": 60
+    },
+    {
+      "lat": 42.826443,
+      "lng": 23.546286,
+      "alt": 9734,
+      "spd": 262,
+      "ts": 1501061032,
+      "hd": 61
+    },
+    {
+      "lat": 42.8195,
+      "lng": 23.529022,
+      "alt": 9325,
+      "spd": 252,
+      "ts": 1501061019,
+      "hd": 61
+    },
+    {
+      "lat": 42.812641,
+      "lng": 23.511763,
+      "alt": 8902,
+      "spd": 252,
+      "ts": 1501061006,
+      "hd": 61
+    },
+    {
+      "lat": 42.805923,
+      "lng": 23.49511,
+      "alt": 8449,
+      "spd": 252,
+      "ts": 1501060994,
+      "hd": 61
+    },
+    {
+      "lat": 42.799229,
+      "lng": 23.478559,
+      "alt": 8025,
+      "spd": 0,
+      "ts": 1501060982,
+      "hd": 62
+    }
+  ],
+  "firstTimestamp": 1501060982,
+  "s": "3AZxghzalw6d-_QMmdPGbC69R-tLgyUd9hpb5EvF1UU"
+}
