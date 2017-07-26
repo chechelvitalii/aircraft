@@ -64,6 +64,13 @@
             <version>3.4</version>
         </dependency>
 
+        <!--Json parse-->
+        <dependency>
+            <groupId>com.elasticpath.json</groupId>
+            <artifactId>json-unmarshaller</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

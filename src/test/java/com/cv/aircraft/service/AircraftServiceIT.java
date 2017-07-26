@@ -20,7 +20,7 @@ public class AircraftServiceIT {
         Zone.BottomRight bottomRight = new Zone.BottomRight(50.14, 31.66);
         Zone zone = new Zone(topLeft, bottomRight);
         //WHEN
-        aircraftService.getOnlineAircraftIdsInZone(zone);
+        aircraftService.getAircraftIdsInZone(zone);
         //THEN
         //TODO mock restTemplate ?
 

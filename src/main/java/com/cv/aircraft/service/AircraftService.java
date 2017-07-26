@@ -1,8 +1,7 @@
 package com.cv.aircraft.service;
 
-import com.cv.aircraft.dto.AircraftInfo;
 import com.cv.aircraft.dto.Zone;
-import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -15,6 +14,9 @@ import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.extern.slf4j.Slf4j;
+
+import static java.lang.String.format;
 import static java.util.stream.IntStream.range;
 
 @Slf4j
@@ -28,16 +30,10 @@ public class AircraftService {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Value("${url.online.aircraft.id}")
-    private String onlineAircraftIdsUrl;
+    @Value("${url.aircraft.ids}")
+    private String aircraftIdsUrl;
 
-    public List<AircraftInfo> getAircraftInfos(Zone zone) {
-        List<AircraftInfo> aircraftInfos = new ArrayList<>();
-        List<String> onlineAircraftIdsInZone = getOnlineAircraftIdsInZone(zone);
-        return aircraftInfos;
-    }
-
-    public List<String> getOnlineAircraftIdsInZone(Zone zone) {
+    public List<String> getAircraftIdsInZone(Zone zone) {
         Zone.TopLeft topLeft = zone.getTopLeft();
         Zone.BottomRight bottomRight = zone.getBottomRight();
         String preparedUrl = prepareUrl(topLeft, bottomRight);
@@ -49,11 +45,9 @@ public class AircraftService {
     }
 
     private String prepareUrl(Zone.TopLeft topLeft, Zone.BottomRight bottomRight) {
-        return onlineAircraftIdsUrl
-                + topLeft.getLatitude() + ","
-                + bottomRight.getLatitude() + ","
-                + topLeft.getLongitude() + ","
-                + bottomRight.getLongitude();
+        return format(aircraftIdsUrl,
+                topLeft.getLatitude(), bottomRight.getLatitude(),
+                topLeft.getLongitude(), bottomRight.getLongitude());
     }
 
     private HttpEntity<String> prepareHeaders() {
