@@ -7,11 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Set;
+
+import static org.junit.Assert.assertNotNull;
+
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class AircraftServiceIT {
+public class AircraftIdServiceIT {
     @Autowired
-    private AircraftService aircraftService;
+    private AircraftIdService aircraftIdService;
 
     @Test
     public void shouldGetAircraftsInZone() {
@@ -20,10 +24,8 @@ public class AircraftServiceIT {
         Zone.BottomRight bottomRight = new Zone.BottomRight(50.14, 31.66);
         Zone zone = new Zone(topLeft, bottomRight);
         //WHEN
-        aircraftService.getAircraftIdsInZone(zone);
+        Set<String> aircraftIdsInZone = aircraftIdService.getAircraftIdsInZone(zone);
         //THEN
-        //TODO mock restTemplate ?
-
+        assertNotNull(aircraftIdsInZone);
     }
-
 }

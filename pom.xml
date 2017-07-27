@@ -68,9 +68,15 @@
         <dependency>
             <groupId>com.elasticpath.json</groupId>
             <artifactId>json-unmarshaller</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.FIX</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/json-unmarshaller-0-SNAPSHOT.jar</systemPath>
         </dependency>
-
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <version>2.0.0</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -91,6 +97,11 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+        <testResources>
+            <testResource>
+                <directory>${project.basedir}/src/test/recources</directory>
+            </testResource>
+        </testResources>
     </build>
 
 

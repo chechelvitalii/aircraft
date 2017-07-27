@@ -22,7 +22,7 @@ public class AircraftInfo {
     private String arrivalCity;
     @JsonPath("$.trail[0].spd")
     private int speed;
-    @JsonPath("$.trail[0].spd")
+    @JsonPath("$.trail[0].alt")
     private int hight;
 }
 
