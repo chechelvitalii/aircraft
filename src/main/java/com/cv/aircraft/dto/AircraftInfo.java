@@ -23,22 +23,9 @@ public class AircraftInfo {
     @JsonPath("$.trail[0].spd")
     private int speed;
     @JsonPath("$.trail[0].alt")
-    private int hight;
+    private int height;
+    @JsonPath("$.aircraft.images.thumbnails[0].src")
+    private String ico;
+    @JsonPath("$.aircraft.images.medium[0].src")
+    private String img;
 }
-
-//TODO remove it
-//https://data-live.flightradar24.com/clickhandler/?version=1.5&flight=e3c275b
-//
-//        $.aircraft.model.text      -----  "Embraer ERJ-145LR"
-//        $.airline.short            ------"Windrose Airlines"
-//        $.airport.origin.position.country.name  --- FROM---- "Bulgaria"
-//        $.airport.origin.position.region.city                "Sofia"
-//
-//        $.airport.destination.position.country.name   --- TO--- "Ukraine"
-//        $.airport.destination.position.region.city     "Kiev"
-//
-//
-//        $.trail[0].lat
-//        $.trail[0].lng
-//        $.trail[0].spd     spead in knots
-//        $.trail[0].alt      hight in ft

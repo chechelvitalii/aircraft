@@ -1,7 +1,7 @@
-package com.cv.aircraft.service;
+package com.cv.aircraft.service.aircraft;
 
 import com.cv.aircraft.dto.Zone;
-import lombok.extern.slf4j.Slf4j;
+
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,6 +12,8 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Set;
+
+import lombok.extern.slf4j.Slf4j;
 
 import static com.cv.aircraft.service.RequestUtils.defaultHeaders;
 import static java.lang.String.format;

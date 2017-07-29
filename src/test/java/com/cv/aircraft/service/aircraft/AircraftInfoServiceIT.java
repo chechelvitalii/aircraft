@@ -1,6 +1,7 @@
-package com.cv.aircraft.service;
+package com.cv.aircraft.service.aircraft;
 
 import com.cv.aircraft.dto.AircraftInfo;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ import static org.junit.Assert.assertNotNull;
 @RunWith(SpringRunner.class)
 public class AircraftInfoServiceIT {
     @Autowired
-    private AircraftInfoIdService aircraftInfoService;
+    private AircraftInfoService aircraftInfoService;
 
     @Test
     public void shouldGetAircraftInfos() throws Exception {

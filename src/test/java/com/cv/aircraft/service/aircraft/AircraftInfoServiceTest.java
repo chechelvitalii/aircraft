@@ -1,8 +1,9 @@
-package com.cv.aircraft.service;
+package com.cv.aircraft.service.aircraft;
 
 import com.cv.aircraft.IOTestUtils;
 import com.cv.aircraft.dto.AircraftInfo;
 import com.fasterxml.jackson.contrib.jsonpath.DefaultJsonUnmarshaller;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,8 +23,10 @@ import java.util.Set;
 import static java.util.Arrays.asList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.*;
-import static org.mockito.Matchers.*;
+import static org.junit.Assert.assertNotNull;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.when;
 import static org.springframework.http.HttpStatus.OK;
 
@@ -31,13 +34,13 @@ import static org.springframework.http.HttpStatus.OK;
 public class AircraftInfoServiceTest {
 
     @InjectMocks
-    private AircraftInfoIdService aircraftInfoService;
+    private AircraftInfoService aircraftInfoService;
     @Mock
     private RestTemplate restTemplate;
 
     @Before
     public void setUp() throws Exception {
-        aircraftInfoService = new AircraftInfoIdService(restTemplate, new DefaultJsonUnmarshaller());
+        aircraftInfoService = new AircraftInfoService(restTemplate, new DefaultJsonUnmarshaller());
         ReflectionTestUtils.setField(aircraftInfoService, "aircraftInfoUrl", "http://test=%s");
 
     }
@@ -61,9 +64,9 @@ public class AircraftInfoServiceTest {
         assertThat(aircraftInfo1.getArrivalCountry(), is("Ukraine"));
         assertThat(aircraftInfo1.getArrivalCity(), is("Kiev"));
         assertThat(aircraftInfo1.getSpeed(), is(180));
-        assertThat(aircraftInfo1.getHight(), is(3816));
-//        assertThat(aircraftInfo1.,is());
-//        assertThat(aircraftInfo1.,is());
+        assertThat(aircraftInfo1.getHeight(), is(3816));
+        assertThat(aircraftInfo1.getIco(),is("https://cdn.jetphotos.com/200/6/26071_1499321981_tb.jpg?v=0"));
+        assertThat(aircraftInfo1.getImg(),is("https://cdn.jetphotos.com/400/6/26071_1499321981.jpg?v=0"));
     }
 
     @Test
@@ -71,7 +74,7 @@ public class AircraftInfoServiceTest {
         //GIVEN
         String json = IOTestUtils.readFileAsString("/aircraftInfo.json");
         //WHEN
-        AircraftInfoIdService aircraftInfoService = new AircraftInfoIdService(new RestTemplate(),new DefaultJsonUnmarshaller());
+        AircraftInfoService aircraftInfoService = new AircraftInfoService(new RestTemplate(),new DefaultJsonUnmarshaller());
         AircraftInfo aircraftInfo = aircraftInfoService.convertToAircraftInfo(json);
         //THEN
         assertNotNull(aircraftInfo);
