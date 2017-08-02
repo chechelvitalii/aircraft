@@ -47,6 +47,11 @@
             <artifactId>telegrambots</artifactId>
             <version>${telegram.bot.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.vdurmont</groupId>
+            <artifactId>emoji-java</artifactId>
+            <version>3.2.0</version>
+        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
