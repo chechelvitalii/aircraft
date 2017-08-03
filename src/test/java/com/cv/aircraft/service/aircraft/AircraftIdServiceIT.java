@@ -1,6 +1,7 @@
-package com.cv.aircraft.service;
+package com.cv.aircraft.service.aircraft;
 
 import com.cv.aircraft.dto.Zone;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

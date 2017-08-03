@@ -1,6 +1,7 @@
-package com.cv.aircraft.service;
+package com.cv.aircraft.service.aircraft;
 
 import com.cv.aircraft.dto.AircraftInfo;
+import com.cv.aircraft.service.RequestUtils;
 import com.fasterxml.jackson.contrib.jsonpath.JsonUnmarshaller;
 import com.google.common.annotations.VisibleForTesting;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,13 +17,13 @@ import java.util.List;
 import java.util.Set;
 
 @Component
-public class AircraftInfoIdService extends AircraftService {
+public class AircraftInfoService extends AircraftService {
 
     private RestTemplate restTemplate;
     private JsonUnmarshaller jsonUnmarshaller;
 
     @Autowired
-    public AircraftInfoIdService(RestTemplate restTemplate, JsonUnmarshaller jsonUnmarshaller) {
+    public AircraftInfoService(RestTemplate restTemplate, JsonUnmarshaller jsonUnmarshaller) {
         this.restTemplate = restTemplate;
         this.jsonUnmarshaller = jsonUnmarshaller;
     }

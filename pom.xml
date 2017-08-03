@@ -70,7 +70,7 @@
             <artifactId>json-unmarshaller</artifactId>
             <version>1.0.FIX</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/lib/json-unmarshaller-0-SNAPSHOT.jar</systemPath>
+            <systemPath>${project.basedir}/lib/json-unmarshaller-1-0-FIX.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.jayway.jsonpath</groupId>
