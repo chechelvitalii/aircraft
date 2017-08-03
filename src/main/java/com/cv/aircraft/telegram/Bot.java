@@ -1,26 +1,27 @@
 package com.cv.aircraft.telegram;
 
-import com.cv.aircraft.dto.Zone;
-import com.cv.aircraft.service.DistanceService;
+import com.cv.aircraft.service.telegram.KeyboardAnswerProviderService;
+import com.cv.aircraft.service.telegram.PrepareMessageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Message;
 import org.telegram.telegrambots.api.objects.Update;
+import org.telegram.telegrambots.api.objects.replykeyboard.ReplyKeyboard;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
-import static com.cv.aircraft.telegram.Button.locationButton;
-
 @Slf4j
 public class Bot extends TelegramLongPollingBot {
-    public static final String TOKEN = "391777415:AAGSrUbXMaCFqVyeR6v5fyFDqIQnVab3-Jc";
+    public static final String TOKEN = "391777415:AAGARqGctXzTAwTsVtLd_-qApvtj0i3AGTU";
     public static final String BOT_NAME = "K1evbot";
 
-    private DistanceService distanceService;
+    private KeyboardAnswerProviderService keyboardAnswerProviderService;
+    private PrepareMessageService prepareMessageService;
 
     public Bot(ApplicationContext context) {
-        this.distanceService = context.getBean(DistanceService.class);
+        this.keyboardAnswerProviderService = context.getBean(KeyboardAnswerProviderService.class);
+        this.prepareMessageService = context.getBean(PrepareMessageService.class);
     }
 
     @Override
@@ -28,17 +29,69 @@ public class Bot extends TelegramLongPollingBot {
         if (update.hasMessage()) {
             Message inMess = update.getMessage();
 
-            if (inMess.hasLocation()) {
-                showAircrafts(inMess);
+            if (hasCommand(inMess)) {
+                ReplyKeyboard keyboard = keyboardAnswerProviderService.makeKeyboard(update.getMessage());
+                SendMessage sendMessage = prepareMessageService.makeMessageWithKeyBoard(keyboard, "ℹ Would you like get information about airplanes nearby you ❓", inMess);
+                trySendMessage(sendMessage);
             }
 
-            SendMessage message = new SendMessage();
-            message.setChatId(inMess.getChatId());
-            message.setText("If for a long time you haven't answer - be sure that you turn on LOCALIZATION");
-            message.setReplyMarkup(locationButton("I see an aircraft!"));
-            trySendMessage(message);
+            if (inMess.hasLocation()) {
+                ReplyKeyboard keyboard = keyboardAnswerProviderService.makeKeyboardWithAirplaneIds(inMess);
+                SendMessage sendMessage = prepareMessageService.makeMessageWithKeyBoard(keyboard, "Please, choose one airplane.", inMess);
+                trySendMessage(sendMessage);
+            }
 
+//            SendMessage message = new SendMessage();
+//            message.setChatId(inMess.getChatId());
+//            message.setText("If for a long time you haven't answer - be sure that you turn on LOCALIZATION");
+//            if (inMess.getText().equals("Hi")) {
+//
+////            message.setReplyMarkup(locationButton("I see an aircraft!"));
+//                ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
+//                replyKeyboardMarkup.setResizeKeyboard(true);
+//                KeyboardRow keyboardButtons = new KeyboardRow();
+//                KeyboardButton button = new KeyboardButton();
+//                button.setText("button_1");
+//                keyboardButtons.add(0, button);
+//                replyKeyboardMarkup.setKeyboard(asList(keyboardButtons));
+//                message.setReplyMarkup(replyKeyboardMarkup);
+//                trySendMessage(message);
+//            } else if (inMess.getText().equals("Yo")) {
+//                InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
+//                InlineKeyboardButton inlineKeyboardButton = new InlineKeyboardButton();
+//                inlineKeyboardButton.setText("ololo_text");
+//                inlineKeyboardButton.setCallbackData("yo data");
+//                inlineKeyboardMarkup.setKeyboard(asList(asList(inlineKeyboardButton)));
+//                message.setReplyMarkup(inlineKeyboardMarkup);
+//                trySendMessage(message);
+//            } else if (inMess.getText().equals("Next")) {
+//                ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
+//                replyKeyboardMarkup.setOneTimeKeyboard(true);
+//                KeyboardRow keyboardButtons = new KeyboardRow();
+//                keyboardButtons.add("next >>");
+//                replyKeyboardMarkup.setKeyboard(asList(keyboardButtons));
+//                message.setReplyMarkup(replyKeyboardMarkup);
+//                trySendMessage(message);
+//            }
+//        }
+//        if (update.hasCallbackQuery()) {
+//            String callBackData = update.getCallbackQuery().getData();
+//            InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
+//            InlineKeyboardButton inlineKeyboardButton = new InlineKeyboardButton();
+//            inlineKeyboardButton.setText(callBackData);
+//            inlineKeyboardButton.setCallbackData("http://google.com");
+//            inlineKeyboardMarkup.setKeyboard(asList(asList(inlineKeyboardButton)));
+//            SendMessage message = new SendMessage();
+//            message.setText("data came");
+//            message.setChatId(update.getCallbackQuery().getMessage().getChatId());
+//            message.setReplyMarkup(inlineKeyboardMarkup);
+//            trySendMessage(message);
         }
+    }
+
+    private boolean hasCommand(Message message) {
+        return message.hasEntities() && message.getEntities().stream()
+                .anyMatch(messageEntity -> "bot_command".equals(messageEntity.getType()));
     }
 
     @Override
@@ -54,14 +107,9 @@ public class Bot extends TelegramLongPollingBot {
     private void trySendMessage(SendMessage message) {
         try {
             sendMessage(message);
-        } catch (TelegramApiException e) {
-            log.error("Problem with sending message: " + message);
+        } catch (TelegramApiException ex) {
+            log.error("Problem with sending message: " + message, ex);
         }
     }
 
-    private void showAircrafts(Message message) {
-        Float latitude = message.getLocation().getLatitude();
-        Float longitude = message.getLocation().getLongitude();
-        Zone computeZone = distanceService.computeZone(latitude, longitude);
-    }
 }
