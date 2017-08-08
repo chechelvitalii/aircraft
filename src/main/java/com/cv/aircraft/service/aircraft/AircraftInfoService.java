@@ -4,6 +4,7 @@ import com.cv.aircraft.dto.AircraftInfo;
 import com.cv.aircraft.service.RequestUtils;
 import com.fasterxml.jackson.contrib.jsonpath.JsonUnmarshaller;
 import com.google.common.annotations.VisibleForTesting;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
@@ -12,9 +13,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 
 @Component
 public class AircraftInfoService extends AircraftService {
@@ -31,15 +29,10 @@ public class AircraftInfoService extends AircraftService {
     @Value("${url.aircraft.info}")
     private String aircraftInfoUrl;
 
-    public List<AircraftInfo> getAircraftInfos(Set<String> aircraftIds) {
-        List<AircraftInfo> aircraftInfos = new ArrayList<>();
-        for (String aircraftId : aircraftIds) {
+    public AircraftInfo getAircraftInfos(String aircraftId) {
             String preparedUrl = prepareUrl(aircraftId);
             ResponseEntity<String> response = restTemplate.exchange(preparedUrl, HttpMethod.GET, RequestUtils.defaultHeaders(), String.class);
-            AircraftInfo aircraftInfo = convertToAircraftInfo(response.getBody());
-            aircraftInfos.add(aircraftInfo);
-        }
-        return aircraftInfos;
+            return convertToAircraftInfo(response.getBody());
     }
 
     @VisibleForTesting

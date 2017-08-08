@@ -1,5 +1,6 @@
 package com.cv.aircraft.service.aircraft;
 
+import com.cv.aircraft.dto.AirplaneShortInfo;
 import com.cv.aircraft.dto.Zone;
 
 import org.junit.Test;
@@ -25,7 +26,7 @@ public class AircraftIdServiceIT {
         Zone.BottomRight bottomRight = new Zone.BottomRight(50.14, 31.66);
         Zone zone = new Zone(topLeft, bottomRight);
         //WHEN
-        Set<String> aircraftIdsInZone = aircraftIdService.getAircraftIdsInZone(zone);
+        Set<AirplaneShortInfo> aircraftIdsInZone = aircraftIdService.getAirplaneShortInfoInZone(zone);
         //THEN
         assertNotNull(aircraftIdsInZone);
     }

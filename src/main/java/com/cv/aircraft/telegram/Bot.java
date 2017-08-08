@@ -1,8 +1,10 @@
 package com.cv.aircraft.telegram;
 
+import com.cv.aircraft.dto.AircraftInfo;
+import com.cv.aircraft.service.aircraft.AircraftInfoService;
 import com.cv.aircraft.service.telegram.KeyboardAnswerProviderService;
 import com.cv.aircraft.service.telegram.PrepareMessageService;
-import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.context.ApplicationContext;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Message;
@@ -11,6 +13,8 @@ import org.telegram.telegrambots.api.objects.replykeyboard.ReplyKeyboard;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Slf4j
 public class Bot extends TelegramLongPollingBot {
     public static final String TOKEN = "391777415:AAGARqGctXzTAwTsVtLd_-qApvtj0i3AGTU";
@@ -18,10 +22,12 @@ public class Bot extends TelegramLongPollingBot {
 
     private KeyboardAnswerProviderService keyboardAnswerProviderService;
     private PrepareMessageService prepareMessageService;
+    private AircraftInfoService aircraftInfoService;
 
     public Bot(ApplicationContext context) {
         this.keyboardAnswerProviderService = context.getBean(KeyboardAnswerProviderService.class);
         this.prepareMessageService = context.getBean(PrepareMessageService.class);
+        this.aircraftInfoService = context.getBean(AircraftInfoService.class);
     }
 
     @Override
@@ -73,9 +79,16 @@ public class Bot extends TelegramLongPollingBot {
 //                message.setReplyMarkup(replyKeyboardMarkup);
 //                trySendMessage(message);
 //            }
-//        }
-//        if (update.hasCallbackQuery()) {
-//            String callBackData = update.getCallbackQuery().getData();
+        }
+        if (update.hasCallbackQuery()) {
+            String callBackData = update.getCallbackQuery().getData();
+            //TODO
+            AircraftInfo aircraftInfo = aircraftInfoService.getAircraftInfos(callBackData);
+            SendMessage message = prepareMessageService.formatAirplaneInfo(aircraftInfo, update.getCallbackQuery().getMessage());
+            trySendMessage(message);
+
+        }
+//            }
 //            InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
 //            InlineKeyboardButton inlineKeyboardButton = new InlineKeyboardButton();
 //            inlineKeyboardButton.setText(callBackData);
@@ -86,7 +99,6 @@ public class Bot extends TelegramLongPollingBot {
 //            message.setChatId(update.getCallbackQuery().getMessage().getChatId());
 //            message.setReplyMarkup(inlineKeyboardMarkup);
 //            trySendMessage(message);
-        }
     }
 
     private boolean hasCommand(Message message) {

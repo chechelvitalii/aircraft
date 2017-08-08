@@ -16,11 +16,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import static java.util.Arrays.asList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertNotNull;
@@ -48,25 +43,23 @@ public class AircraftInfoServiceTest {
     @Test
     public void getAircraftInfos() {
         //GIVEN
-        Set<String> aircraftIds = new HashSet<>(asList("id1", "id2"));
+        String aircraftId = "id1";
         String responseBody = IOTestUtils.readFileAsString("/aircraftInfo.json");
         ResponseEntity<String> responseEntity = new ResponseEntity(responseBody, OK);
         when(restTemplate.exchange(anyString(), any(HttpMethod.class), any(HttpEntity.class), eq(String.class))).thenReturn(responseEntity);
         //WHEN
-        List<AircraftInfo> aircraftInfos = aircraftInfoService.getAircraftInfos(aircraftIds);
+        AircraftInfo aircraftInfo = aircraftInfoService.getAircraftInfos(aircraftId);
 
         //THEN
-        AircraftInfo aircraftInfo1 = aircraftInfos.get(0);
-        assertThat(aircraftInfo1.getAirline(), is("Windrose Airlines"));
-        assertThat(aircraftInfo1.getModel(), is("Embraer ERJ-145LR"));
-        assertThat(aircraftInfo1.getDepartureCountry(), is("Bulgaria"));
-        assertThat(aircraftInfo1.getDepartureCity(), is("Sofia"));
-        assertThat(aircraftInfo1.getArrivalCountry(), is("Ukraine"));
-        assertThat(aircraftInfo1.getArrivalCity(), is("Kiev"));
-        assertThat(aircraftInfo1.getSpeed(), is(180));
-        assertThat(aircraftInfo1.getHeight(), is(3816));
-        assertThat(aircraftInfo1.getIco(),is("https://cdn.jetphotos.com/200/6/26071_1499321981_tb.jpg?v=0"));
-        assertThat(aircraftInfo1.getImg(),is("https://cdn.jetphotos.com/400/6/26071_1499321981.jpg?v=0"));
+        assertThat(aircraftInfo.getAirline(), is("Windrose Airlines"));
+        assertThat(aircraftInfo.getModel(), is("Embraer ERJ-145LR"));
+        assertThat(aircraftInfo.getDepartureCountry(), is("Bulgaria"));
+        assertThat(aircraftInfo.getDepartureCity(), is("Sofia"));
+        assertThat(aircraftInfo.getArrivalCountry(), is("Ukraine"));
+        assertThat(aircraftInfo.getArrivalCity(), is("Kiev"));
+        assertThat(aircraftInfo.getSpeed(), is(180));
+        assertThat(aircraftInfo.getHeight(), is(3816));
+        assertThat(aircraftInfo.getImg(),is("https://cdn.jetphotos.com/400/6/26071_1499321981.jpg?v=0"));
     }
 
     @Test

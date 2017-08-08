@@ -1,7 +1,9 @@
 package com.cv.aircraft.service.aircraft;
 
+import com.cv.aircraft.dto.AirplaneShortInfo;
 import com.cv.aircraft.dto.Zone;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -31,20 +34,28 @@ public class AircraftIdService extends AircraftService {
     @Value("${url.aircraft.ids}")
     private String aircraftIdsUrl;
 
-    public Set<String> getAircraftIdsInZone(Zone zone) {
+    public Set<AirplaneShortInfo> getAirplaneShortInfoInZone(Zone zone) {
         Zone.TopLeft topLeft = zone.getTopLeft();
         Zone.BottomRight bottomRight = zone.getBottomRight();
         String preparedUrl = prepareUrl(topLeft.getLatitude(), bottomRight.getLatitude(), topLeft.getLongitude(), bottomRight.getLongitude());
         ResponseEntity<String> response = restTemplate
                 .exchange(preparedUrl, HttpMethod.GET, defaultHeaders(), String.class);
-        return parseAircraftIds(response.getBody());
+        return convertToAirplaneShortInfo(response.getBody());
     }
 
-    private Set<String> parseAircraftIds(String json) {
+    private Set<AirplaneShortInfo> convertToAirplaneShortInfo(String json) {
         JSONObject jsonObject = new JSONObject(json);
-        Set<String> aircraftIds = jsonObject.keySet();
-        aircraftIds.removeAll(NOT_BUSINESS_KEYS);
-        return aircraftIds;
+        Set<String> airplaneIds = jsonObject.keySet();
+        airplaneIds.removeAll(NOT_BUSINESS_KEYS);
+        Set<AirplaneShortInfo> airplaneShortInfos = new HashSet<>();
+        for (String airplaneId : airplaneIds) {
+            if (jsonObject.get(airplaneId) instanceof JSONArray) {
+                String from = (String) ((JSONArray) jsonObject.get(airplaneId)).get(11);
+                String to = (String) ((JSONArray) jsonObject.get(airplaneId)).get(12);
+                airplaneShortInfos.add(new AirplaneShortInfo(airplaneId, from, to));
+            }
+        }
+        return airplaneShortInfos;
     }
 
     @Override

@@ -4,9 +4,11 @@ import com.fasterxml.jackson.contrib.jsonpath.annotation.JsonPath;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString
 public class AircraftInfo {
     @JsonPath("$.aircraft.model.text")
     private String model;
@@ -24,8 +26,8 @@ public class AircraftInfo {
     private int speed;
     @JsonPath("$.trail[0].alt")
     private int height;
-    @JsonPath("$.aircraft.images.thumbnails[0].src")
-    private String ico;
     @JsonPath("$.aircraft.images.medium[0].src")
     private String img;
+
+
 }
