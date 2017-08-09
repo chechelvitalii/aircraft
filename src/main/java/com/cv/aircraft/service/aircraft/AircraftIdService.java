@@ -37,7 +37,7 @@ public class AircraftIdService extends AircraftService {
     public Set<AirplaneShortInfo> getAirplaneShortInfoInZone(Zone zone) {
         Zone.TopLeft topLeft = zone.getTopLeft();
         Zone.BottomRight bottomRight = zone.getBottomRight();
-        String preparedUrl = prepareUrl(topLeft.getLatitude(), bottomRight.getLatitude(), topLeft.getLongitude(), bottomRight.getLongitude());
+        String preparedUrl = prepareUrl(bottomRight.getLatitude(), topLeft.getLatitude(), topLeft.getLongitude(), bottomRight.getLongitude());
         ResponseEntity<String> response = restTemplate
                 .exchange(preparedUrl, HttpMethod.GET, defaultHeaders(), String.class);
         return convertToAirplaneShortInfo(response.getBody());
