@@ -1,33 +1,41 @@
 package com.cv.aircraft.telegram;
 
 import com.cv.aircraft.dto.AircraftInfo;
+import com.cv.aircraft.facade.AirpalneInZoneFacade;
+import com.cv.aircraft.facade.CommandFacade;
 import com.cv.aircraft.service.aircraft.AircraftInfoService;
-import com.cv.aircraft.service.telegram.KeyboardAnswerProviderService;
 import com.cv.aircraft.service.telegram.PrepareMessageService;
-import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
+import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Message;
 import org.telegram.telegrambots.api.objects.Update;
-import org.telegram.telegrambots.api.objects.replykeyboard.ReplyKeyboard;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Slf4j
 @Component
-@Lazy
 public class Bot extends TelegramLongPollingBot {
     public static final String TOKEN = "391777415:AAGARqGctXzTAwTsVtLd_-qApvtj0i3AGTU";
     public static final String BOT_NAME = "K1evbot";
 
+    static {
+        // Initialize Api Context
+        ApiContextInitializer.init();
+    }
+
     @Autowired
-    private KeyboardAnswerProviderService keyboardAnswerProviderService;
+    private CommandFacade commandFacade;
     @Autowired
     private PrepareMessageService prepareMessageService;
     @Autowired
     private AircraftInfoService aircraftInfoService;
+    @Autowired
+    private AirpalneInZoneFacade airpalneInZoneFacade;
 
     @Override
     public void onUpdateReceived(Update update) {
@@ -35,15 +43,11 @@ public class Bot extends TelegramLongPollingBot {
             Message inMess = update.getMessage();
 
             if (hasCommand(inMess)) {
-                ReplyKeyboard keyboard = keyboardAnswerProviderService.makeKeyboard(update.getMessage());
-                SendMessage sendMessage = prepareMessageService.makeMessageWithKeyBoard(keyboard, "ℹ Would you like get information about airplanes nearby you ❓", inMess);
-                trySendMessage(sendMessage);
+                commandFacade.provideAnsver(inMess);
             }
 
             if (inMess.hasLocation()) {
-                ReplyKeyboard keyboard = keyboardAnswerProviderService.makeKeyboardWithAirplaneIds(inMess);
-                SendMessage sendMessage = prepareMessageService.makeMessageWithKeyBoard(keyboard, "Please, choose one airplane.", inMess);
-                trySendMessage(sendMessage);
+                airpalneInZoneFacade.showAircraftInZone(inMess);
             }
 
         }

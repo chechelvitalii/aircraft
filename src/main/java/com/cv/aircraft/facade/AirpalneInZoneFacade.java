@@ -4,12 +4,13 @@ import com.cv.aircraft.dto.AirplaneShortInfo;
 import com.cv.aircraft.dto.Zone;
 import com.cv.aircraft.service.DistanceService;
 import com.cv.aircraft.service.aircraft.AircraftIdService;
+import com.cv.aircraft.util.SenderUtil;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.api.objects.Message;
 import org.telegram.telegrambots.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.api.objects.replykeyboard.buttons.InlineKeyboardButton;
-import org.telegram.telegrambots.bots.DefaultAbsSender;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,10 +24,12 @@ public class AirpalneInZoneFacade {
     private DistanceService distanceService;
     @Autowired
     private AircraftIdService aircraftIdService;
+    @Autowired
+    private SenderUtil senderUtil;
 
-    public void showAircraftInZone(Message message) {
-        Float latitude = message.getLocation().getLatitude();
-        Float longitude = message.getLocation().getLongitude();
+    public void showAircraftInZone(Message inMess) {
+        Float latitude = inMess.getLocation().getLatitude();
+        Float longitude = inMess.getLocation().getLongitude();
         Zone zone = distanceService.computeZone(latitude, longitude);
         Set<AirplaneShortInfo> airplaneShortInfoInZone = aircraftIdService.getAirplaneShortInfoInZone(zone);
 
@@ -39,7 +42,6 @@ public class AirpalneInZoneFacade {
             rowsButton.add(asList(inlineButton));
         }
         inlineKeyboardMarkup.setKeyboard(rowsButton);
-//        return inlineKeyboardMarkup;
-
+        senderUtil.sendKeyboard(inMess, "Please, choose one airplane.", inlineKeyboardMarkup);
     }
 }
