@@ -1,7 +1,6 @@
 package com.cv.aircraft.service.telegram;
 
 import com.cv.aircraft.dto.AircraftInfo;
-
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Message;
@@ -10,7 +9,14 @@ import org.telegram.telegrambots.api.objects.replykeyboard.ReplyKeyboard;
 @Component
 public class PrepareMessageService {
     public SendMessage formatAirplaneInfo(AircraftInfo aircraftInfo, Message message) {
-        String format = String.format("Model: %s \n Speed: %s", aircraftInfo.getModel(), aircraftInfo.getSpeed());
+        String template = "Model: %s\nAirline: %s\nDepartureCountry: %s\nDepartureCity: %s\nArrivalCountry: %s\nArrivalCity: %s\nSpeed: %s\nHeight: %s\nimg: %s";
+
+        String format = String.format(template,
+                aircraftInfo.getModel(), aircraftInfo.getAirline(),
+                aircraftInfo.getDepartureCountry(), aircraftInfo.getDepartureCity(),
+                aircraftInfo.getArrivalCountry(), aircraftInfo.getArrivalCity(),
+                aircraftInfo.getSpeed(), aircraftInfo.getHeight(),
+                aircraftInfo.getImg());
         return getSendMessage(message, format);
     }
 
