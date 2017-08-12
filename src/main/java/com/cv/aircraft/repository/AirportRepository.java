@@ -17,11 +17,11 @@ public class AirportRepository {
     @Getter(AccessLevel.PACKAGE)
     private final Map<String, AirportEntity> cacheAirportEntities = new HashMap();
 
-    public AirportEntity findAirportEntityByIataCode(String iataCode) {
+    public Optional<AirportEntity> findAirportEntityByIataCode(String iataCode) {
         if (cacheAirportEntities.isEmpty()) {
             parsAndCacheAirportEntities();
         }
-        return cacheAirportEntities.get(iataCode);
+        return Optional.ofNullable(cacheAirportEntities.get(iataCode));
     }
 
     private void parsAndCacheAirportEntities() {

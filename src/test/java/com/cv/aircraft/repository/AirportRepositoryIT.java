@@ -1,7 +1,6 @@
 package com.cv.aircraft.repository;
 
 import com.cv.aircraft.model.AirportEntity;
-import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Map;
+import java.util.Optional;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -27,8 +27,10 @@ public class AirportRepositoryIT {
         //GIVEN
         String iataCode = "IEV";
         //WHEN
-        AirportEntity airportEntity = airportRepository.findAirportEntityByIataCode(iataCode);
+        Optional<AirportEntity> maybeAirportEntity = airportRepository.findAirportEntityByIataCode(iataCode);
         //THEN
+        assertTrue(maybeAirportEntity.isPresent());
+        AirportEntity airportEntity = maybeAirportEntity.get();
         assertThat(airportEntity.getIataCode(), is(iataCode));
         assertThat(airportEntity.getCityEng(), is("Kiev"));
         assertTrue(airportEntity.getCityRus().isPresent());
@@ -46,7 +48,7 @@ public class AirportRepositoryIT {
         Map<String, AirportEntity> cacheAirportEntities = airportRepository.getCacheAirportEntities();
         //THEN
         cacheAirportEntities.values().stream()
-                .forEach(airportEntity ->assertSatisfyAirportEntity(airportEntity));
+                .forEach(airportEntity -> assertSatisfyAirportEntity(airportEntity));
     }
 
     private void assertSatisfyAirportEntity(AirportEntity airportEntity) {
