@@ -2,6 +2,8 @@ package com.cv.aircraft.repository;
 
 import com.cv.aircraft.model.AirportEntity;
 import com.opencsv.CSVReader;
+import lombok.AccessLevel;
+import lombok.Getter;
 import org.springframework.stereotype.Component;
 
 import java.io.FileReader;
@@ -12,6 +14,7 @@ import java.util.Optional;
 
 @Component
 public class AirportRepository {
+    @Getter(AccessLevel.PACKAGE)
     private final Map<String, AirportEntity> cacheAirportEntities = new HashMap();
 
     public AirportEntity findAirportEntityByIataCode(String iataCode) {
@@ -25,12 +28,12 @@ public class AirportRepository {
         String path = "rawDoc/airports.csv";
         CSVReader reader = null;
         try {
-            reader = new CSVReader(new FileReader(this.getClass().getResource(path).getFile()), '|');
+            reader = new CSVReader(new FileReader(this.getClass().getClassLoader().getResource(path).getFile()), '|');
             String[] line;
             while ((line = reader.readNext()) != null) {
                 AirportEntity airportEntity = AirportEntity.builder()
                         .iataCode(line[1])
-                        .cityRus(Optional.of(line[3]))
+                        .cityRus(Optional.ofNullable(line[3].isEmpty() ? null : line[3]))
                         .cityEng(line[5])
                         .countryRus(line[7])
                         .countryEng(line[9])

@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Component
 public class Bot extends TelegramLongPollingBot {
-    public static final String TOKEN = "391777415:AAGARqGctXzTAwTsVtLd_-qApvtj0i3AGTU";
+    public static final String TOKEN = "391777415:AAGKD1VhZZEF5oBQw0WDiMpAK7d4fr0P0Bo";
     public static final String BOT_NAME = "K1evbot";
 
     static {
