@@ -1,4 +1,5 @@
 #!/bin/bash
+<<<<<<< HEAD
 
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
@@ -10,3 +11,14 @@ then
 else
     kill $PID
 fi
+=======
+source $OPENSHIFT_CARTRIDGE_SDK_BASH
+
+# The logic to stop your application should be put in this script.
+if [ -z "$(ps -ef | grep testrubyserver.rb | grep -v grep)" ]
+then
+    client_result "Application is already stopped"
+else
+    kill `ps -ef | grep testrubyserver.rb | grep -v grep | awk '{ print $2 }'` > /dev/null 2>&1
+fi
+>>>>>>> d434e177938885d9f9ccce1273d520b8c0807bc2

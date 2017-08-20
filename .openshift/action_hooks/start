@@ -1,4 +1,5 @@
 #!/bin/bash
+<<<<<<< HEAD
 
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
@@ -9,3 +10,9 @@ export PATH=$JAVA_HOME/bin:$PATH
 
 cd $OPENSHIFT_REPO_DIR
 nohup java -Xms384m -Xmx412m -jar target/*.jar --server.port=${OPENSHIFT_DIY_PORT} --server.address=${OPENSHIFT_DIY_IP} --spring.profiles.active=openshift &
+=======
+# The logic to start up your application should be put in this
+# script. The application will work only if it binds to
+# $OPENSHIFT_DIY_IP:8080
+nohup $OPENSHIFT_REPO_DIR/diy/testrubyserver.rb $OPENSHIFT_DIY_IP $OPENSHIFT_REPO_DIR/diy |& /usr/bin/logshifter -tag diy &
+>>>>>>> d434e177938885d9f9ccce1273d520b8c0807bc2

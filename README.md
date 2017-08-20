@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Prerequisite
 
 Before we can start building the application, we need to have an OpenShift free account and client tools installed.
@@ -81,3 +82,8 @@ And when you observe the build result, the application starts a bit faster on Je
 # Under the hood
 
 http://blog.codeleak.pl/2014/10/spring-boot-java-8-tomcat-8-on-openshift.html
+=======
+The OpenShift `diy` cartridge documentation can be found at:
+
+http://openshift.github.io/documentation/oo_cartridge_guide.html#diy
+>>>>>>> d434e177938885d9f9ccce1273d520b8c0807bc2
