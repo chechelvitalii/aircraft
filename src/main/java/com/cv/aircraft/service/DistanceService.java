@@ -1,6 +1,6 @@
 package com.cv.aircraft.service;
 
-import com.cv.aircraft.dto.Zone;
+import com.cv.aircraft.dto.TargetArea;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -10,15 +10,16 @@ public class DistanceService {
     private static final float LONGITUDE_KHM_PER_DEGREE = Float.parseFloat("40008.55") / 360;
     private static final float EQUATOR_LATITUDE_KHM_PER_DEGREE = Float.parseFloat("40075.696") / 360;
 
-    public Zone computeZone(Float latitude, Float longitude) {
-        double topLatitude = latitude + getDefaultZoneLatitude(latitude);
-        double topLongitude = longitude - getDefaultZoneLongitude();
-        Zone.TopLeft topLeft = new Zone.TopLeft(topLatitude, topLongitude);
-        double bottomLatitude = latitude - getDefaultZoneLatitude(latitude);
-        double bottomLongitude = longitude + getDefaultZoneLongitude();
-        Zone.BottomRight bottomRight = new Zone.BottomRight(bottomLatitude, bottomLongitude);
+    public TargetArea createTargetArea(Float latitude, Float longitude) {
+        double north = latitude + getDefaultZoneLatitude(latitude);
+        double west = longitude - getDefaultZoneLongitude();
+        TargetArea.Point northWest = new TargetArea.Point(north, west);
 
-        return new Zone(topLeft, bottomRight);
+        double south = latitude - getDefaultZoneLatitude(latitude);
+        double east = longitude + getDefaultZoneLongitude();
+        TargetArea.Point southEast = new TargetArea.Point(south, east);
+
+        return new TargetArea(northWest, southEast);
     }
 
     private double getDefaultZoneLatitude(Float latitude) {

@@ -1,7 +1,7 @@
 package com.cv.aircraft.telegram;
 
 import com.cv.aircraft.dto.AircraftInfo;
-import com.cv.aircraft.facade.AirpalneInZoneFacade;
+import com.cv.aircraft.facade.AirplaneInTargetAreaFacade;
 import com.cv.aircraft.facade.CommandFacade;
 import com.cv.aircraft.service.aircraft.AircraftInfoService;
 import com.cv.aircraft.service.telegram.PrepareMessageService;
@@ -35,7 +35,7 @@ public class Bot extends TelegramLongPollingBot {
     @Autowired
     private AircraftInfoService aircraftInfoService;
     @Autowired
-    private AirpalneInZoneFacade airpalneInZoneFacade;
+    private AirplaneInTargetAreaFacade airplaneInTargetAreaFacade;
 
     @Override
     public void onUpdateReceived(Update update) {
@@ -47,7 +47,7 @@ public class Bot extends TelegramLongPollingBot {
             }
 
             if (inMess.hasLocation()) {
-                airpalneInZoneFacade.showAircraftInZone(inMess);
+                airplaneInTargetAreaFacade.showAircraftInTargetArea(inMess);
             }
 
         }

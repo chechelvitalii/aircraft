@@ -1,6 +1,6 @@
 package com.cv.aircraft.service;
 
-import com.cv.aircraft.dto.Zone;
+import com.cv.aircraft.dto.TargetArea;
 
 import org.junit.Test;
 
@@ -17,14 +17,14 @@ public class DistanceServiceTest {
         float latitude = Float.valueOf("50.34385826");
         float longitude = Float.valueOf("30.88865161");
         //WHEN
-        Zone computeZone = distanceService.computeZone(latitude, longitude);
+        TargetArea computeTargetArea = distanceService.createTargetArea(latitude, longitude);
         //THEN
-        Zone.TopLeft topLeft = computeZone.getTopLeft();
-        assertThat(topLeft.getLatitude(),is(Double.valueOf("50.52")));
-        assertThat(topLeft.getLongitude(),is(Double.valueOf("30.71")));
-        Zone.BottomRight bottomRight = computeZone.getBottomRight();
-        assertThat(bottomRight.getLatitude(),is(Double.valueOf("50.16")));
-        assertThat(bottomRight.getLongitude(),is(Double.valueOf("31.07")));
+        TargetArea.Point northWest = computeTargetArea.getNorthWest();
+        assertThat(northWest.getLatitude(),is(Double.valueOf("50.52")));
+        assertThat(northWest.getLongitude(),is(Double.valueOf("30.71")));
+        TargetArea.Point southEast = computeTargetArea.getSouthEast();
+        assertThat(southEast.getLatitude(),is(Double.valueOf("50.16")));
+        assertThat(southEast.getLongitude(),is(Double.valueOf("31.07")));
     }
 
 }

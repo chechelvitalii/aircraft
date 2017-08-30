@@ -1,7 +1,7 @@
 package com.cv.aircraft.service.aircraft;
 
 import com.cv.aircraft.dto.AirplaneShortInfo;
-import com.cv.aircraft.dto.Zone;
+import com.cv.aircraft.dto.TargetArea;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -34,10 +34,8 @@ public class AircraftIdService extends AircraftService {
     @Value("${url.aircraft.ids}")
     private String aircraftIdsUrl;
 
-    public Set<AirplaneShortInfo> getAirplaneShortInfoInZone(Zone zone) {
-        Zone.TopLeft topLeft = zone.getTopLeft();
-        Zone.BottomRight bottomRight = zone.getBottomRight();
-        String preparedUrl = prepareUrl(bottomRight.getLatitude(), topLeft.getLatitude(), topLeft.getLongitude(), bottomRight.getLongitude());
+    public Set<AirplaneShortInfo> getAirplaneShortInfoInZone(TargetArea targetArea) {
+        String preparedUrl = prepareUrl(targetArea.targetAreaToString());
         ResponseEntity<String> response = restTemplate
                 .exchange(preparedUrl, HttpMethod.GET, defaultHeaders(), String.class);
         return convertToAirplaneShortInfo(response.getBody());

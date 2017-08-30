@@ -1,8 +1,7 @@
 package com.cv.aircraft.facade;
 
 import com.cv.aircraft.dto.AirplaneShortInfo;
-import com.cv.aircraft.dto.Zone;
-import com.cv.aircraft.repository.AirportRepository;
+import com.cv.aircraft.dto.TargetArea;
 import com.cv.aircraft.service.DistanceService;
 import com.cv.aircraft.service.aircraft.AircraftIdService;
 import com.cv.aircraft.service.aircraft.AirportService;
@@ -21,7 +20,7 @@ import java.util.Set;
 import static java.util.Arrays.asList;
 
 @Component
-public class AirpalneInZoneFacade {
+public class AirplaneInTargetAreaFacade {
     @Autowired
     private DistanceService distanceService;
     @Autowired
@@ -31,11 +30,11 @@ public class AirpalneInZoneFacade {
     @Autowired
     private AirportService airportService;
 
-    public void showAircraftInZone(Message inMess) {
+    public void showAircraftInTargetArea(Message inMess) {
         Float latitude = inMess.getLocation().getLatitude();
         Float longitude = inMess.getLocation().getLongitude();
-        Zone zone = distanceService.computeZone(latitude, longitude);
-        Set<AirplaneShortInfo> airplaneShortInfoInZone = aircraftIdService.getAirplaneShortInfoInZone(zone);
+        TargetArea targetArea = distanceService.createTargetArea(latitude, longitude);
+        Set<AirplaneShortInfo> airplaneShortInfoInZone = aircraftIdService.getAirplaneShortInfoInZone(targetArea);
 
         InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> rowsButton = new ArrayList<>();
