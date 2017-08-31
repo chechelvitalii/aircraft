@@ -24,6 +24,9 @@
         <java.version>1.8</java.version>
         <telegram.bot.version>3.0.1</telegram.bot.version>
         <lombok.version>1.16.12</lombok.version>
+        <!--This property create while building-->
+        <timestamp>${maven.build.timestamp}</timestamp>
+        <maven.build.timestamp.format>yyyy-MM-dd HH:mm</maven.build.timestamp.format>
 
         <start-class>com.cv.aircraft.AircraftApplication</start-class>
     </properties>
@@ -109,6 +112,13 @@
                 </configuration>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <!--This flag allow write into property values-->
+                <filtering>true</filtering>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
         <testResources>
             <testResource>
                 <directory>${project.basedir}/src/test/recources</directory>
