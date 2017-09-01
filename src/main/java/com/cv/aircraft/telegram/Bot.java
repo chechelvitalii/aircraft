@@ -7,6 +7,7 @@ import com.cv.aircraft.service.aircraft.AircraftInfoService;
 import com.cv.aircraft.service.telegram.PrepareMessageService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
@@ -20,9 +21,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Component
 public class Bot extends TelegramLongPollingBot {
-    public static final String TOKEN = "391777415:AAGKD1VhZZEF5oBQw0WDiMpAK7d4fr0P0Bo";
-    public static final String BOT_NAME = "K1evbot";
-
     static {
         // Initialize Api Context
         ApiContextInitializer.init();
@@ -36,6 +34,10 @@ public class Bot extends TelegramLongPollingBot {
     private AircraftInfoService aircraftInfoService;
     @Autowired
     private AirplaneInTargetAreaFacade airplaneInTargetAreaFacade;
+    @Value("${bot.token}")
+    private String botToken;
+    @Value("${bot.name}")
+    private String botName;
 
     @Override
     public void onUpdateReceived(Update update) {
@@ -68,12 +70,12 @@ public class Bot extends TelegramLongPollingBot {
 
     @Override
     public String getBotUsername() {
-        return BOT_NAME;
+        return botName;
     }
 
     @Override
     public String getBotToken() {
-        return TOKEN;
+        return botToken;
     }
 
     private void trySendMessage(SendMessage message) {
