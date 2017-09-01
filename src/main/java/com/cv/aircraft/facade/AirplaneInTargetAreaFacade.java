@@ -47,6 +47,6 @@ public class AirplaneInTargetAreaFacade {
             rowsButton.add(asList(inlineButton));
         }
         inlineKeyboardMarkup.setKeyboard(rowsButton);
-        senderUtil.sendKeyboard(inMess, "Please, choose one airplane.", inlineKeyboardMarkup);
+        senderUtil.sendKeyboard(inMess.getChatId(), "Please, choose one airplane.", inlineKeyboardMarkup);
     }
 }

@@ -40,6 +40,7 @@ public class AircraftApplication {
     @SneakyThrows
     public TelegramBotsApi telegramBotsApi() {
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
+//        telegramBotsApi.registerBot(context.getBean(Bot.class));
         telegramBotsApi.registerBot(context.getBean(Bot.class));
         return telegramBotsApi;
     }
