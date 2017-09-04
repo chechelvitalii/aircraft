@@ -2,7 +2,7 @@ package com.cv.aircraft.facade;
 
 import com.cv.aircraft.dto.AirplaneShortInfo;
 import com.cv.aircraft.dto.TargetArea;
-import com.cv.aircraft.service.DistanceService;
+import com.cv.aircraft.service.AreaService;
 import com.cv.aircraft.service.aircraft.AircraftIdService;
 import com.cv.aircraft.service.aircraft.AirportService;
 import com.cv.aircraft.util.SenderUtil;
@@ -22,7 +22,7 @@ import static java.util.Arrays.asList;
 @Component
 public class AirplaneInTargetAreaFacade {
     @Autowired
-    private DistanceService distanceService;
+    private AreaService areaService;
     @Autowired
     private AircraftIdService aircraftIdService;
     @Autowired
@@ -33,7 +33,7 @@ public class AirplaneInTargetAreaFacade {
     public void showAircraftInTargetArea(Message inMess) {
         Float latitude = inMess.getLocation().getLatitude();
         Float longitude = inMess.getLocation().getLongitude();
-        TargetArea targetArea = distanceService.createTargetArea(latitude, longitude);
+        TargetArea targetArea = areaService.determinateTargetArea(latitude, longitude);
         Set<AirplaneShortInfo> airplaneShortInfoInZone = aircraftIdService.getAirplaneShortInfoInZone(targetArea);
 
         InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
