@@ -9,12 +9,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.client.RestTemplate;
 import org.telegram.telegrambots.TelegramBotsApi;
 
 import lombok.SneakyThrows;
 
 @SpringBootApplication
+@PropertySource("classpath:build.properties")
 public class AircraftApplication {
 
     public static void main(String[] args) {
@@ -38,6 +40,7 @@ public class AircraftApplication {
     @SneakyThrows
     public TelegramBotsApi telegramBotsApi() {
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
+//        telegramBotsApi.registerBot(context.getBean(Bot.class));
         telegramBotsApi.registerBot(context.getBean(Bot.class));
         return telegramBotsApi;
     }

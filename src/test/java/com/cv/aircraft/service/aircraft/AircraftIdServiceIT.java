@@ -1,7 +1,7 @@
 package com.cv.aircraft.service.aircraft;
 
 import com.cv.aircraft.dto.AirplaneShortInfo;
-import com.cv.aircraft.dto.Zone;
+import com.cv.aircraft.dto.TargetArea;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,11 +22,11 @@ public class AircraftIdServiceIT {
     @Test
     public void shouldGetAircraftsInZone() {
         //GIVEN
-        Zone.TopLeft topLeft = new Zone.TopLeft(50.71, 29.52);
-        Zone.BottomRight bottomRight = new Zone.BottomRight(50.14, 31.66);
-        Zone zone = new Zone(topLeft, bottomRight);
+        TargetArea.Point northWest = new TargetArea.Point(50.71, 29.52);
+        TargetArea.Point southEast = new TargetArea.Point(50.14, 31.66);
+        TargetArea targetArea = new TargetArea(northWest, southEast);
         //WHEN
-        Set<AirplaneShortInfo> aircraftIdsInZone = aircraftIdService.getAirplaneShortInfoInZone(zone);
+        Set<AirplaneShortInfo> aircraftIdsInZone = aircraftIdService.getAirplaneShortInfoInZone(targetArea);
         //THEN
         assertNotNull(aircraftIdsInZone);
     }
