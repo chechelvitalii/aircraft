@@ -57,8 +57,8 @@ public class AircraftInfoServiceTest {
         assertThat(aircraftInfo.getDepartureCity(), is("Sofia"));
         assertThat(aircraftInfo.getArrivalCountry(), is("Ukraine"));
         assertThat(aircraftInfo.getArrivalCity(), is("Kiev"));
-        assertThat(aircraftInfo.getSpeed(), is(180));
-        assertThat(aircraftInfo.getHeight(), is(3816));
+        assertThat(aircraftInfo.getSpeedInKmH(), is(333));
+        assertThat(aircraftInfo.getHeightInMeters(), is(1163));
         assertThat(aircraftInfo.getImg(),is("https://cdn.jetphotos.com/400/6/26071_1499321981.jpg?v=0"));
     }
 

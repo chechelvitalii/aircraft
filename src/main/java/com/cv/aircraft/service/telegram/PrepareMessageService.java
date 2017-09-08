@@ -9,13 +9,13 @@ import org.telegram.telegrambots.api.objects.replykeyboard.ReplyKeyboard;
 @Component
 public class PrepareMessageService {
     public SendMessage formatAirplaneInfo(AircraftInfo aircraftInfo, Message message) {
-        String template = "Model: %s\nAirline: %s\nDepartureCountry: %s\nDepartureCity: %s\nArrivalCountry: %s\nArrivalCity: %s\nSpeed: %s\nHeight: %s\nimg: %s";
+        String template = "Model: %s\nAirline: %s\nDepartureCountry: %s\nDepartureCity: %s\nArrivalCountry: %s\nArrivalCity: %s\nSpeed: %s km/h\nHeight: %s m\nimg: %s";
 
         String format = String.format(template,
                 aircraftInfo.getModel(), aircraftInfo.getAirline(),
                 aircraftInfo.getDepartureCountry(), aircraftInfo.getDepartureCity(),
                 aircraftInfo.getArrivalCountry(), aircraftInfo.getArrivalCity(),
-                aircraftInfo.getSpeed(), aircraftInfo.getHeight(),
+                aircraftInfo.getSpeedInKmH(), aircraftInfo.getHeightInMeters(),
                 aircraftInfo.getImg());
         return getSendMessage(message, format);
     }
