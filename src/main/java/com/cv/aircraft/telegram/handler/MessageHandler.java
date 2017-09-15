@@ -1,5 +1,5 @@
 package com.cv.aircraft.telegram.handler;
 
-public interface Handler {
+public interface MessageHandler {
     void execute(org.telegram.telegrambots.api.objects.Message inputMess);
 }

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class LocationHandler implements Handler {
+public class LocationHandler implements MessageHandler {
     @Autowired
     private AirplaneInTargetAreaFacade airplaneInTargetAreaFacade;
 

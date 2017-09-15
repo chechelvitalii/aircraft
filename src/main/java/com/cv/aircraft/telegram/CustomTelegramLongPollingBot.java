@@ -1,5 +1,6 @@
 package com.cv.aircraft.telegram;
 
+import com.cv.aircraft.telegram.handler.AbstractCallbackHandler;
 import com.cv.aircraft.telegram.handler.LocationHandler;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public abstract class CustomTelegramLongPollingBot extends TelegramLongPollingCo
     private ApplicationContext context;
 
     private List<LocationHandler> locationHandlers = new ArrayList<>();
-    private List<CallbackHandler> callbackHandlers = new ArrayList<>();
+    private List<AbstractCallbackHandler> callbackHandlers = new ArrayList<>();
 
     @Override
     public void processNonCommandUpdate(Update update) {
@@ -31,7 +32,7 @@ public abstract class CustomTelegramLongPollingBot extends TelegramLongPollingCo
             locationHandlers.forEach(locationHandler -> locationHandler.execute(update.getMessage()));
         }
         if (update.hasCallbackQuery()) {
-            callbackHandlers.forEach(callbackHandler -> callbackHandler.execute(update.getMessage()));
+            callbackHandlers.forEach(callbackHandler -> callbackHandler.execute(update.getCallbackQuery()));
         }
     }
 
@@ -50,7 +51,7 @@ public abstract class CustomTelegramLongPollingBot extends TelegramLongPollingCo
             locationHandlers.add(botHandle);
         });
 
-        Map<String, CallbackHandler> callbackHandlerMap = context.getBeansOfType(CallbackHandler.class);
+        Map<String, AbstractCallbackHandler> callbackHandlerMap = context.getBeansOfType(AbstractCallbackHandler.class);
         callbackHandlerMap.forEach((handleName, botHandle) -> {
             log.info("Handler {} was registered", handleName);
             callbackHandlers.add(botHandle);
