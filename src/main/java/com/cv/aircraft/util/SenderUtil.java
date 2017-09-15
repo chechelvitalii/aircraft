@@ -1,7 +1,6 @@
 package com.cv.aircraft.util;
 
-import com.cv.aircraft.telegram.Bot;
-
+import com.cv.aircraft.telegram.CustomTelegramLongPollingBot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
@@ -11,7 +10,7 @@ import org.telegram.telegrambots.exceptions.TelegramApiException;
 @Component
 public class SenderUtil {
     @Autowired
-    private Bot bot;
+    private CustomTelegramLongPollingBot customTelegramLongPollingBot;
 
     public void sendKeyboard(Long chatId, String responseText, ReplyKeyboard keyboard) {
         SendMessage sendMessage = getSendMessage(chatId, responseText);
@@ -24,7 +23,7 @@ public class SenderUtil {
         trySend(sendMessage);
     }
 
-    private SendMessage getSendMessage(Long chatId , String responseText) {
+    private SendMessage getSendMessage(Long chatId, String responseText) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId);
         sendMessage.setText(responseText);
@@ -33,7 +32,7 @@ public class SenderUtil {
 
     private void trySend(SendMessage sendMessage) {
         try {
-            bot.sendMessage(sendMessage);
+            customTelegramLongPollingBot.sendMessage(sendMessage);
         } catch (TelegramApiException e) {
             throw new RuntimeException(e);
         }

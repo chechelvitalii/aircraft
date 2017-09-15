@@ -1,15 +1,15 @@
-package com.cv.aircraft.service.aircraft;
+package com.cv.aircraft.service;
 
 import com.cv.aircraft.IOTestUtils;
 import com.cv.aircraft.dto.AirplaneShortInfo;
 import com.cv.aircraft.dto.TargetArea;
 
+import com.cv.aircraft.service.AircraftIdService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;

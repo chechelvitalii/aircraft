@@ -1,4 +1,4 @@
-package com.cv.aircraft.service.aircraft;
+package com.cv.aircraft.service;
 
 import com.cv.aircraft.model.AirportEntity;
 import com.cv.aircraft.repository.AirportRepository;

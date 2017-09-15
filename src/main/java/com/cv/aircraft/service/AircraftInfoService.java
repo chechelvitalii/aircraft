@@ -1,7 +1,7 @@
-package com.cv.aircraft.service.aircraft;
+package com.cv.aircraft.service;
 
 import com.cv.aircraft.dto.AircraftInfo;
-import com.cv.aircraft.service.RequestUtils;
+import com.cv.aircraft.util.RequestUtils;
 import com.fasterxml.jackson.contrib.jsonpath.JsonUnmarshaller;
 import com.google.common.annotations.VisibleForTesting;
 
@@ -29,8 +29,8 @@ public class AircraftInfoService extends AircraftService {
     @Value("${url.aircraft.info}")
     private String aircraftInfoUrl;
 
-    public AircraftInfo getAircraftInfos(String aircraftId) {
-            String preparedUrl = prepareUrl(aircraftId);
+    public AircraftInfo getAircraftInfos(String airplaneId) {
+            String preparedUrl = prepareUrl(airplaneId);
             ResponseEntity<String> response = restTemplate.exchange(preparedUrl, HttpMethod.GET, RequestUtils.defaultHeaders(), String.class);
             return convertToAircraftInfo(response.getBody());
     }

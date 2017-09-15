@@ -1,14 +1,14 @@
-package com.cv.aircraft.facade;
+package com.cv.aircraft.telegram.handler.location;
 
 import com.cv.aircraft.dto.AirplaneShortInfo;
 import com.cv.aircraft.dto.TargetArea;
 import com.cv.aircraft.service.AreaService;
-import com.cv.aircraft.service.aircraft.AircraftIdService;
-import com.cv.aircraft.service.aircraft.AirportService;
-import com.cv.aircraft.util.SenderUtil;
-
+import com.cv.aircraft.service.AircraftIdService;
+import com.cv.aircraft.service.AirportService;
+import com.cv.aircraft.telegram.handler.Handler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.telegram.telegrambots.api.interfaces.BotApiObject;
 import org.telegram.telegrambots.api.objects.Message;
 import org.telegram.telegrambots.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.api.objects.replykeyboard.buttons.InlineKeyboardButton;
@@ -20,19 +20,25 @@ import java.util.Set;
 import static java.util.Arrays.asList;
 
 @Component
-public class AirplaneInTargetAreaFacade {
+public class LocationHandler extends Handler<Message> {
     @Autowired
     private AreaService areaService;
     @Autowired
     private AircraftIdService aircraftIdService;
     @Autowired
-    private SenderUtil senderUtil;
-    @Autowired
     private AirportService airportService;
 
-    public void showAircraftInTargetArea(Message inMess) {
-        Float latitude = inMess.getLocation().getLatitude();
-        Float longitude = inMess.getLocation().getLongitude();
+    @Override
+    public boolean match(BotApiObject botApiObject) {
+        return botApiObject instanceof Message;
+    }
+
+    @Override
+    protected void process(Message inputMess) {
+        Float latitude = inputMess.getLocation().getLatitude();
+        Float longitude = inputMess.getLocation().getLongitude();
+        Long chatId = inputMess.getChatId();
+
         TargetArea targetArea = areaService.determinateTargetArea(latitude, longitude);
         Set<AirplaneShortInfo> airplaneShortInfoInZone = aircraftIdService.getAirplaneShortInfoInZone(targetArea);
 
@@ -47,6 +53,6 @@ public class AirplaneInTargetAreaFacade {
             rowsButton.add(asList(inlineButton));
         }
         inlineKeyboardMarkup.setKeyboard(rowsButton);
-        senderUtil.sendKeyboard(inMess.getChatId(), "Please, choose one airplane.", inlineKeyboardMarkup);
+        senderUtil.sendKeyboard(chatId, "Please, choose one airplane.", inlineKeyboardMarkup);
     }
 }

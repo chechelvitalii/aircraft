@@ -1,7 +1,8 @@
-package com.cv.aircraft.service.aircraft;
+package com.cv.aircraft.service;
 
 import com.cv.aircraft.model.AirportEntity;
 import com.cv.aircraft.repository.AirportRepository;
+import com.cv.aircraft.service.AirportService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

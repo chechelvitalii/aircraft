@@ -1,4 +1,4 @@
-package com.cv.aircraft.service;
+package com.cv.aircraft.util;
 
 import lombok.experimental.UtilityClass;
 import org.springframework.http.HttpEntity;

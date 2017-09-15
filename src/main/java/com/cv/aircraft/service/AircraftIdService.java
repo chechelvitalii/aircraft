@@ -1,4 +1,4 @@
-package com.cv.aircraft.service.aircraft;
+package com.cv.aircraft.service;
 
 import com.cv.aircraft.dto.AirplaneShortInfo;
 import com.cv.aircraft.dto.TargetArea;
@@ -18,7 +18,7 @@ import java.util.Set;
 
 import lombok.extern.slf4j.Slf4j;
 
-import static com.cv.aircraft.service.RequestUtils.defaultHeaders;
+import static com.cv.aircraft.util.RequestUtils.defaultHeaders;
 import static java.lang.String.format;
 import static java.util.Arrays.asList;
 

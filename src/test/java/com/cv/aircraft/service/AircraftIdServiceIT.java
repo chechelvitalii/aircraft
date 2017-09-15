@@ -1,8 +1,9 @@
-package com.cv.aircraft.service.aircraft;
+package com.cv.aircraft.service;
 
 import com.cv.aircraft.dto.AirplaneShortInfo;
 import com.cv.aircraft.dto.TargetArea;
 
+import com.cv.aircraft.service.AircraftIdService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

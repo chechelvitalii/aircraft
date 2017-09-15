@@ -1,7 +1,8 @@
-package com.cv.aircraft.service.aircraft;
+package com.cv.aircraft.service;
 
 import com.cv.aircraft.IOTestUtils;
 import com.cv.aircraft.dto.AircraftInfo;
+import com.cv.aircraft.service.AircraftInfoService;
 import com.fasterxml.jackson.contrib.jsonpath.DefaultJsonUnmarshaller;
 
 import org.junit.Before;
