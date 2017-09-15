@@ -1,7 +1,7 @@
 package com.cv.aircraft.service;
 
 import com.cv.aircraft.model.AirportEntity;
-import com.cv.aircraft.repository.AirportRepository;
+import com.cv.aircraft.repository.csv.AirportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

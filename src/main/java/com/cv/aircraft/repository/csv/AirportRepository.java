@@ -1,4 +1,4 @@
-package com.cv.aircraft.repository;
+package com.cv.aircraft.repository.csv;
 
 import com.cv.aircraft.model.AirportEntity;
 import com.opencsv.CSVReader;
