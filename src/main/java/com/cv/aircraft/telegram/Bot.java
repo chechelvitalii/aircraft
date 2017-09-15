@@ -1,31 +1,25 @@
 package com.cv.aircraft.telegram;
 
-import com.cv.aircraft.dto.AircraftInfo;
 import com.cv.aircraft.facade.AirplaneInTargetAreaFacade;
 import com.cv.aircraft.service.aircraft.AircraftInfoService;
 import com.cv.aircraft.service.telegram.PrepareMessageService;
-import com.cv.aircraft.telegram.command.StartCommand;
-import com.cv.aircraft.telegram.command.VersionCommand;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
-import org.telegram.telegrambots.api.objects.Message;
-import org.telegram.telegrambots.api.objects.Update;
-import org.telegram.telegrambots.bots.TelegramLongPollingCommandBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
-public class Bot extends TelegramLongPollingCommandBot {
-        static {
-            // Initialize Api Context
-            ApiContextInitializer.init();
-        }
+public class Bot extends CustomTelegramLongPollingBot {
+    static {
+        // Initialize Api Context
+        ApiContextInitializer.init();
+    }
 
     @Autowired
     private PrepareMessageService prepareMessageService;
@@ -39,31 +33,25 @@ public class Bot extends TelegramLongPollingCommandBot {
     @Value("${bot.name}")
     private String botName;
 
-    @Autowired
-    public Bot(StartCommand startCommand, VersionCommand versionCommand) {
-        register(startCommand);
-        register(versionCommand);
-    }
-
-    @Override
-    public void processNonCommandUpdate(Update update) {
-        if (update.hasMessage()) {
-            Message inMess = update.getMessage();
-
-            if (inMess.hasLocation()) {
-                airplaneInTargetAreaFacade.showAircraftInTargetArea(inMess);
-            }
-
-        }
-        if (update.hasCallbackQuery()) {
-            String callBackData = update.getCallbackQuery().getData();
-            //TODO
-            AircraftInfo aircraftInfo = aircraftInfoService.getAircraftInfos(callBackData);
-            SendMessage message = prepareMessageService.formatAirplaneInfo(aircraftInfo, update.getCallbackQuery().getMessage());
-            trySendMessage(message);
-
-        }
-    }
+//    @Override
+//    public void processNonCommandUpdate(Update update) {
+//        if (update.hasMessage()) {
+//            Message inMess = update.getMessage();
+//
+//            if (inMess.hasLocation()) {
+//                airplaneInTargetAreaFacade.showAircraftInTargetArea(inMess);
+//            }
+//
+//        }
+//        if (update.hasCallbackQuery()) {
+//            String callBackData = update.getCallbackQuery().getData();
+//            //TODO
+//            AircraftInfo aircraftInfo = aircraftInfoService.getAircraftInfos(callBackData);
+//            SendMessage message = prepareMessageService.formatAirplaneInfo(aircraftInfo, update.getCallbackQuery().getMessage());
+//            trySendMessage(message);
+//
+//        }
+//    }
 
     @Override
     public String getBotUsername() {

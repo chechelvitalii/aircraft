@@ -1,10 +1,10 @@
 package com.cv.aircraft.service.telegram;
 
 import com.cv.aircraft.dto.AircraftInfo;
+
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Message;
-import org.telegram.telegrambots.api.objects.replykeyboard.ReplyKeyboard;
 
 @Component
 public class PrepareMessageService {
@@ -18,12 +18,6 @@ public class PrepareMessageService {
                 aircraftInfo.getSpeedInKmH(), aircraftInfo.getHeightInMeters(),
                 aircraftInfo.getImg());
         return getSendMessage(message, format);
-    }
-
-    public SendMessage makeMessageWithKeyBoard(ReplyKeyboard keyboard, String responseMess, Message inMess) {
-        SendMessage sendMessage = getSendMessage(inMess, responseMess);
-        sendMessage.setReplyMarkup(keyboard);
-        return sendMessage;
     }
 
     private SendMessage getSendMessage(Message message, String responseMess) {
