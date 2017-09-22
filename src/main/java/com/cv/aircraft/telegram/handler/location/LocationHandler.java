@@ -42,6 +42,15 @@ public class LocationHandler extends Handler<Message> {
         TargetArea targetArea = areaService.determinateTargetArea(latitude, longitude);
         Set<AirplaneShortInfo> airplaneShortInfoInZone = aircraftIdService.getAirplaneShortInfoInZone(targetArea);
 
+        InlineKeyboardMarkup inlineKeyboardMarkup = getInlineKeyboardMarkup(airplaneShortInfoInZone);
+        if (inlineKeyboardMarkup.getKeyboard().isEmpty()) {
+            senderUtil.sendText(chatId, "Sorry airplane in you region was not found");
+        } else {
+            senderUtil.sendKeyboard(chatId, "Please, choose one airplane.", inlineKeyboardMarkup);
+        }
+    }
+
+    private InlineKeyboardMarkup getInlineKeyboardMarkup(Set<AirplaneShortInfo> airplaneShortInfoInZone) {
         InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> rowsButton = new ArrayList<>();
         for (AirplaneShortInfo airplaneShortInfo : airplaneShortInfoInZone) {
@@ -53,6 +62,6 @@ public class LocationHandler extends Handler<Message> {
             rowsButton.add(asList(inlineButton));
         }
         inlineKeyboardMarkup.setKeyboard(rowsButton);
-        senderUtil.sendKeyboard(chatId, "Please, choose one airplane.", inlineKeyboardMarkup);
+        return inlineKeyboardMarkup;
     }
 }

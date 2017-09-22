@@ -14,7 +14,7 @@ public class MessageBuilder {
                 "\nArrivalCity: " + airplane.getArrivalCity() +
                 "\nSpeed: " + airplane.getSpeedInKmH() +
                 "\nHeight: " + airplane.getHeightInMeters() +
-                "\nimg: " + airplane.getImg();
+                "\n" + airplane.getImg();
 
     }
 }
